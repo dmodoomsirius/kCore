@@ -39,11 +39,9 @@ public class DefaultSoundCore
             gameSettings.setSoundLevel(SoundCategory.PLAYERS, DefaultSoundConfig.defaultPlayersSoundLevel);
             gameSettings.setSoundLevel(SoundCategory.AMBIENT, DefaultSoundConfig.defaultAmbientSoundLevel);
         }
-    }
-
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event)
-    {
-
+        else
+        {
+            System.out.println("You are installing this mod on a server. While it will not crash, it will not function. Please remove this mod from the server.");
+        }
     }
 }
