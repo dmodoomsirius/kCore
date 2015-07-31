@@ -277,3 +277,4 @@ gradle.properties
 gradlew
 gradlew.bat
 settings.jar
+src/main/resources/assets/
