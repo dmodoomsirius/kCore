@@ -1,7 +1,7 @@
 package ga.Kolatra.kCore;
 
 import ga.Kolatra.kCore.Common.Command.CommandDebug;
-import ga.Kolatra.kCore.Common.Config.RagingLibConfig;
+import ga.Kolatra.kCore.Common.Config.KCoreConfig;
 import ga.Kolatra.kCore.Common.Events.PlayerEvents;
 import ga.Kolatra.kCore.Common.Item.CreativeTab;
 import ga.Kolatra.kCore.Common.Libraries.LogHelper;
@@ -85,7 +85,7 @@ public class KCore extends KCoreMod
             CONFIG_DIR.mkdirs();
         }
 
-        RagingLibConfig.init(new File(CONFIG_DIR, "RagingLib.cfg"));
+        KCoreConfig.init(new File(CONFIG_DIR, "RagingLib.cfg"));
 
         PlayerEvents pl = new PlayerEvents();
         MinecraftForge.EVENT_BUS.register(pl);

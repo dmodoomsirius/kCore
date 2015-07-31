@@ -1,6 +1,6 @@
 package ga.Kolatra.kCore.Common.Libraries;
 
-import ga.Kolatra.kCore.Common.Config.RagingLibConfig;
+import ga.Kolatra.kCore.Common.Config.KCoreConfig;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,7 +31,7 @@ public final class LogHelper
 
     public static void logDebug(String msg)
     {
-        if (RagingLibConfig.logDebug)
+        if (KCoreConfig.logDebug)
         {
             logger.info(msg);
         }

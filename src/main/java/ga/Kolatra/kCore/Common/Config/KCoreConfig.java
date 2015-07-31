@@ -6,7 +6,7 @@ import java.io.File;
 
 import net.minecraftforge.common.config.Configuration;
 
-public class RagingLibConfig
+public class KCoreConfig
 {
     public static boolean logDebug;
 

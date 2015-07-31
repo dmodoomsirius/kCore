@@ -4,12 +4,12 @@ import ga.Kolatra.kCore.KCore;
 
 import net.minecraft.item.Item;
 
-public class RagingItemBase extends Item
+public class ItemBase extends Item
 {
 
     public String modid;
 
-    public RagingItemBase(String name)
+    public ItemBase(String name)
     {
         super();
         this.setUnlocalizedName(name);

@@ -1,8 +1,7 @@
 package ga.Kolatra.ExtraCraft.Common.Block;
 
 import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
-import ga.Kolatra.kCore.Common.Block.RagingBlockBase;
-import ga.Kolatra.kCore.Common.Libraries.ChatHelper;
+import ga.Kolatra.kCore.Common.Block.BlockBase;
 
 import java.util.Random;
 
@@ -15,7 +14,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class BlockSolarRF extends RagingBlockBase implements ITileEntityProvider
+public class BlockSolarRF extends BlockBase implements ITileEntityProvider
 {
     public BlockSolarRF(String name)
     {

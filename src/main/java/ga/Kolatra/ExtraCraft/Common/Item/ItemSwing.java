@@ -1,9 +1,9 @@
 package ga.Kolatra.ExtraCraft.Common.Item;
 
 import ga.Kolatra.ExtraCraft.ExtraStuffCore;
-import ga.Kolatra.kCore.Common.Item.RagingItemBase;
+import ga.Kolatra.kCore.Common.Item.ItemBase;
 
-public class ItemSwing extends RagingItemBase
+public class ItemSwing extends ItemBase
 {
 
     public ItemSwing()

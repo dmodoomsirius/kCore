@@ -2,7 +2,7 @@ package ga.Kolatra.ExtraCraft.Common.Block;
 
 import cofh.api.energy.IEnergyConnection;
 import ga.Kolatra.ExtraCraft.Common.TileEntity.TileTest;
-import ga.Kolatra.kCore.Common.Block.RagingBlockBase;
+import ga.Kolatra.kCore.Common.Block.BlockBase;
 import ga.Kolatra.kCore.Common.Libraries.ChatHelper;
 import ga.Kolatra.kCore.KCore;
 
@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 
-public class BlockRandom extends RagingBlockBase implements ITileEntityProvider, IEnergyConnection
+public class BlockRandom extends BlockBase implements ITileEntityProvider, IEnergyConnection
 {
 
     public BlockRandom(String name)
