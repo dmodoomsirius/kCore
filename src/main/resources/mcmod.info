@@ -1,0 +1,16 @@
+[
+{
+  "modid": "RagingLib",
+  "name": "RagingLib",
+  "description": "Shared based code for all RagingCommandoSquad mods.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Kolatra"],
+  "credits": "Kolatra, Blubberblub, and williewillus",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
