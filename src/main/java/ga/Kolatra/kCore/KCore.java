@@ -26,14 +26,20 @@ import net.minecraftforge.common.MinecraftForge;
 public class KCore extends KCoreMod
 {
     public static final CreativeTabs cTab = new CreativeTab();
-
-    private static boolean kolatra = calculateKolatrasComputer();
-
+    public static final UUID KolatraUUID = UUID.fromString("1d5e02e0-7e54-4e9e-8d9c-548b22c02daf");
     public static boolean debugMode;
 
     public static File CONFIG_DIR;
+    @Mod.Instance(Reference.MODID)
+    public static KCore INSTANCE;
+    private static boolean kolatra = calculateKolatrasComputer();
 
-    public static final UUID KolatraUUID = UUID.fromString("1d5e02e0-7e54-4e9e-8d9c-548b22c02daf");
+    {
+        if (isKolatrasComputer())
+        {
+            LogHelper.logInfo("Loading on Tyler's computer. Dev features enabled.");
+        }
+    }
 
     public static boolean isKolatrasComputer()
     {
@@ -59,20 +65,10 @@ public class KCore extends KCoreMod
         }
     }
 
-    {
-        if (isKolatrasComputer())
-        {
-            LogHelper.logInfo("Loading on Tyler's computer. Dev features enabled.");
-        }
-    }
-
     public static boolean isDeobf()
     {
         return !FMLForgePlugin.RUNTIME_DEOBF;
     }
-
-    @Mod.Instance(Reference.MODID)
-    public static KCore INSTANCE;
 
     @Override
     @EventHandler

@@ -16,9 +16,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class BlockRandom extends BlockBase implements ITileEntityProvider, IEnergyConnection
 {
 
-    public BlockRandom(String name)
+    public BlockRandom()
     {
-        super(name);
         this.setCreativeTab(KCore.cTab);
         this.setBlockTextureName("extrastuff:random_block");
     }
@@ -28,7 +27,7 @@ public class BlockRandom extends BlockBase implements ITileEntityProvider, IEner
     {
         return new TileTest();
 
-        // Actually links the TE to the Block. :)
+        // Actually links the TE to the Block.
     }
 
     @Override
@@ -38,7 +37,7 @@ public class BlockRandom extends BlockBase implements ITileEntityProvider, IEner
         {
             return false;
         }
-        ChatHelper.sendChatToPlayer(player, "I don't know what I'm doing with this.");
+        ChatHelper.sendChatToPlayer(player, "onBlockActivated");
         if (KCore.debugMode)
         {
             ChatHelper.sendChatToAllOnServer("This is a debug mode test!");

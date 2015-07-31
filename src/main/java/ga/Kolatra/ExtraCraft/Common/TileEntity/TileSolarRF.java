@@ -100,7 +100,7 @@ public class TileSolarRF extends TileEntity
             //return;
         }
 
-        if (worldObj.isDaytime() && worldObj.canBlockSeeTheSky(xCoord, yCoord+1, zCoord))
+        if (worldObj.isDaytime() && worldObj.canBlockSeeTheSky(xCoord, yCoord + 1, zCoord))
         {
             isUnderSun = true;
         }

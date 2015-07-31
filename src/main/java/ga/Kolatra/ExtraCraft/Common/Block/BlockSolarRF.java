@@ -16,11 +16,6 @@ import net.minecraft.world.World;
 
 public class BlockSolarRF extends BlockBase implements ITileEntityProvider
 {
-    public BlockSolarRF(String name)
-    {
-        super(name);
-    }
-
     public BlockSolarRF()
     {
     }
@@ -29,23 +24,6 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     public TileEntity createNewTileEntity(World world, int meta)
     {
         return new TileSolarRF();
-    }
-
-    @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
-    {
-        if (!world.isRemote)
-        {
-            System.out.println(TileSolarRF.energyStored);
-        }
-        return true;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister register)
-    {
-        this.blockIcon = register.registerIcon("extrastuff:solar_rf");
     }
 
     @Override
@@ -63,5 +41,22 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     public int quantityDropped(Random random)
     {
         return 1;
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
+    {
+        if (!world.isRemote)
+        {
+            System.out.println(TileSolarRF.energyStored);
+        }
+        return true;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister register)
+    {
+        this.blockIcon = register.registerIcon("extrastuff:solar_rf");
     }
 }

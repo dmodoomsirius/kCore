@@ -8,8 +8,8 @@ import net.minecraft.block.Block;
 
 public class ModBlocks
 {
-    public static Block blockRandom = new BlockRandom("random_block");
-    public static Block blockSolarRF = new BlockSolarRF("solar_rf");
+    public static Block blockRandom = new BlockRandom();
+    public static Block blockSolarRF = new BlockSolarRF();
 
     public static void register()
     {
