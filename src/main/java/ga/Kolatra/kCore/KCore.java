@@ -30,9 +30,11 @@ public class KCore extends KCoreMod
     public static boolean debugMode;
 
     public static File CONFIG_DIR;
+
+    private static boolean kolatra = calculateKolatrasComputer();
+
     @Mod.Instance(Reference.MODID)
     public static KCore INSTANCE;
-    private static boolean kolatra = calculateKolatrasComputer();
 
     {
         if (isKolatrasComputer())
