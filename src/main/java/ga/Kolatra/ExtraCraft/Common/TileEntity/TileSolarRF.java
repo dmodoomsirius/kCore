@@ -81,7 +81,7 @@ public class TileSolarRF extends TileEntity
     @Override
     public void writeToNBT(NBTTagCompound nbtTagCompound)
     {
-
+        
     }
 
     @Override
