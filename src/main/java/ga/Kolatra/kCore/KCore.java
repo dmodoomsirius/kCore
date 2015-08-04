@@ -36,6 +36,7 @@ public class KCore extends KCoreMod
     @Mod.Instance(Reference.MODID)
     public static KCore INSTANCE;
 
+    static
     {
         if (isKolatrasComputer())
         {
@@ -53,7 +54,6 @@ public class KCore extends KCoreMod
         try
         {
             int cpus = Runtime.getRuntime().availableProcessors();
-            long diskSize = new File("c:").getTotalSpace();
             String username = System.getProperty("user.name");
             if (cpus == 8 && username.equals("Tyler"))
             {

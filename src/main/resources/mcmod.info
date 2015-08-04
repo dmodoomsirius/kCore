@@ -2,7 +2,7 @@
 {
   "modid": "RagingLib",
   "name": "RagingLib",
-  "description": "Shared based code for all RagingCommandoSquad mods.",
+  "description": "",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

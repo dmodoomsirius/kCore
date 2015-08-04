@@ -34,14 +34,10 @@ public class BlockRandom extends BlockBase implements ITileEntityProvider, IEner
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
     {
         if (!world.isRemote)
-        {
             return false;
-        }
         ChatHelper.sendChatToPlayer(player, "onBlockActivated");
         if (KCore.debugMode)
-        {
             ChatHelper.sendChatToAllOnServer("This is a debug mode test!");
-        }
         return true;
     }
 

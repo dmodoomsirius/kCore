@@ -30,11 +30,7 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta)
     {
-        if (side == 1 || side == 2)
-        {
-            return this.blockIcon;
-        }
-        return null;
+        return this.blockIcon;
     }
 
     @Override
@@ -46,10 +42,7 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
     {
-        if (!world.isRemote)
-        {
-            System.out.println(TileSolarRF.energyStored);
-        }
+        System.out.println(TileSolarRF.energyStored);
         return true;
     }
 
