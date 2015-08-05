@@ -28,6 +28,11 @@ public class KCore extends KCoreMod
     public static final CreativeTabs cTab = new CreativeTab();
     public static final UUID KolatraUUID = UUID.fromString("1d5e02e0-7e54-4e9e-8d9c-548b22c02daf");
     public static boolean debugMode;
+    public static final String EXINDEX = "extrastuff:";
+
+    private static int modGUIIndex = 0;
+
+    public static final int GUI_SOLAR_RF = modGUIIndex++;
 
     public static File CONFIG_DIR;
 

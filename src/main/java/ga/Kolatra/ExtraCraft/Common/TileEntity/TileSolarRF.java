@@ -95,25 +95,23 @@ public class TileSolarRF extends TileEntity
     {
         super.updateEntity();
 
-        if (worldObj.isRemote)
+        if (!worldObj.isRemote)
         {
-            //return;
-        }
+            if (worldObj.isDaytime() && worldObj.canBlockSeeTheSky(xCoord, yCoord + 1, zCoord))
+            {
+                isUnderSun = true;
+            }
+            else
+            {
+                isUnderSun = false;
+            }
 
-        if (worldObj.isDaytime() && worldObj.canBlockSeeTheSky(xCoord, yCoord + 1, zCoord))
-        {
-            isUnderSun = true;
-        }
-        else
-        {
-            isUnderSun = false;
-        }
-
-        if (canOperate())
-        {
-            setEnergy(getEnergyStored() + getProduction());
-            if (energyStored > maxPower)
-                energyStored = maxPower;
+            if (canOperate())
+            {
+                setEnergy(getEnergyStored() + getProduction());
+                if (energyStored > maxPower)
+                    energyStored = maxPower;
+            }
         }
     }
 }

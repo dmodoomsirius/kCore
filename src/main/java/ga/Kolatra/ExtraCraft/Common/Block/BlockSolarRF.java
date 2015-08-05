@@ -2,6 +2,7 @@ package ga.Kolatra.ExtraCraft.Common.Block;
 
 import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
 import ga.Kolatra.kCore.Common.Block.BlockBase;
+import ga.Kolatra.kCore.KCore;
 
 import java.util.Random;
 
@@ -42,7 +43,16 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
     {
-        System.out.println(TileSolarRF.energyStored);
+        if (world.isRemote)
+        {
+            if (player != null)
+            {
+                if (world.getTileEntity(x, y, z) instanceof TileSolarRF)
+                {
+                    player.openGui(KCore.INSTANCE, KCore.GUI_SOLAR_RF, world, x, y, z);
+                }
+            }
+        }
         return true;
     }
 
