@@ -31,8 +31,6 @@ minecraft {
     replaceIn "RagingLibCore.java"
 }
 
-apply from: 'https://raw.githubusercontent.com/BuiltBrokenModding/BuiltBrokenScripts/buildScripts/index.gradle'
-
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
