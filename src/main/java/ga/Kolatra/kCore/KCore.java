@@ -1,6 +1,7 @@
 package ga.Kolatra.kCore;
 
 import ga.Kolatra.kCore.Common.Command.CommandDebug;
+import ga.Kolatra.kCore.Common.CommonProxy;
 import ga.Kolatra.kCore.Common.Config.KCoreConfig;
 import ga.Kolatra.kCore.Common.Events.PlayerEvents;
 import ga.Kolatra.kCore.Common.Item.CreativeTab;
@@ -81,14 +82,14 @@ public class KCore extends KCoreMod
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        CONFIG_DIR = new File(event.getModConfigurationDirectory(), "RagingLib");
+        CONFIG_DIR = new File(event.getModConfigurationDirectory(), "kCore");
 
         if (!CONFIG_DIR.exists())
         {
             CONFIG_DIR.mkdirs();
         }
 
-        KCoreConfig.init(new File(CONFIG_DIR, "RagingLib.cfg"));
+        KCoreConfig.init(new File(CONFIG_DIR, "kCore.cfg"));
 
         PlayerEvents pl = new PlayerEvents();
         MinecraftForge.EVENT_BUS.register(pl);
@@ -99,7 +100,7 @@ public class KCore extends KCoreMod
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-
+        CommonProxy.init();
     }
 
     @Override

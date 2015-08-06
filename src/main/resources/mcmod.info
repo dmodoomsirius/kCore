@@ -1,7 +1,7 @@
 [
 {
-  "modid": "RagingLib",
-  "name": "RagingLib",
+  "modid": "kCore",
+  "name": "kCore",
   "description": "",
   "version": "${version}",
   "mcversion": "${mcversion}",

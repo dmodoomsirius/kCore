@@ -6,7 +6,10 @@ import ga.Kolatra.kCore.Common.Block.BlockBase;
 import ga.Kolatra.kCore.Common.Libraries.ChatHelper;
 import ga.Kolatra.kCore.KCore;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -19,7 +22,13 @@ public class BlockRandom extends BlockBase implements ITileEntityProvider, IEner
     public BlockRandom()
     {
         this.setCreativeTab(KCore.cTab);
-        this.setBlockTextureName("extrastuff:random_block");
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister register)
+    {
+        this.blockIcon = register.registerIcon(KCore.EXINDEX + "random_block");
     }
 
     @Override
