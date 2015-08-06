@@ -19,6 +19,7 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
 {
     public BlockSolarRF()
     {
+        this.setTextureName("solar_rf");
     }
 
     @Override
