@@ -1,12 +1,17 @@
 package ga.Kolatra.ExtraCraft.Client.GUI;
 
-import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.inventory.Container;
 
-public class GUISolarRF extends GuiScreen
+public class GUISolarRF extends GuiContainer
 {
-    @Override
-    public void drawScreen(int par1, int par2, float par3)
+    public GUISolarRF(Container invSlots)
     {
+        super(invSlots);
+    }
 
+    @Override
+    protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
+    {
     }
 }

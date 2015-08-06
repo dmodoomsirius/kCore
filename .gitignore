@@ -272,9 +272,5 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-*.gradle
-gradle.properties
-gradlew
-gradlew.bat
 settings.jar
 src/main/resources/assets/

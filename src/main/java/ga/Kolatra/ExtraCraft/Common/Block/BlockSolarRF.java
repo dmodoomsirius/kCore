@@ -60,6 +60,6 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register)
     {
-        this.blockIcon = register.registerIcon("extrastuff:solar_rf");
+        this.blockIcon = register.registerIcon(KCore.EXINDEX + "solar_rf");
     }
 }
