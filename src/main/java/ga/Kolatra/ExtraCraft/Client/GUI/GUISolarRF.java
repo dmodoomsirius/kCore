@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GUISolarRF extends GuiContainer
 {
-    protected static final ResourceLocation solarRF = new ResourceLocation("textures/gui/container/solarrf.png");
+    private final ResourceLocation solarRF = new ResourceLocation("extrastuff:textures/gui/container/solarrf.png");
 
     public GUISolarRF(Container invSlots)
     {
