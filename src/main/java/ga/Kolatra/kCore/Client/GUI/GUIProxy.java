@@ -1,6 +1,5 @@
 package ga.Kolatra.kCore.Client.GUI;
 
-import ga.Kolatra.ExtraCraft.Client.GUI.Container.ContainerSolarRF;
 import ga.Kolatra.ExtraCraft.Client.GUI.GUISolarRF;
 import ga.Kolatra.kCore.KCore;
 
@@ -16,8 +15,7 @@ public class GUIProxy implements IGuiHandler
     {
         if (ID == KCore.GUI_SOLAR_RF)
         {
-            Container container = new ContainerSolarRF();
-            return new GUISolarRF(container);
+            return new GUISolarRF();
         }
         return null;
     }
