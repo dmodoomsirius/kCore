@@ -22,9 +22,14 @@ plugins {
 apply from: 'https://raw.githubusercontent.com/BuiltBrokenModding/BuiltBrokenScripts/buildScripts/index.gradle'
 apply plugin: 'forge'
 
-version = "dev"
 group= "ga.Kolatra.kCore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "kCore"
+
+println "Current Minecraft version = " + minecraft.apiVersion
+
+def currentJvm = org.gradle.internal.jvm.Jvm.current()
+println "Current Java version = " + currentJvm
+println archivesBaseName 
 
 minecraft {
     version = "1.7.10-10.13.4.1448-1.7.10"
@@ -32,8 +37,11 @@ minecraft {
 	mappings = "stable_12"
 
     replace "@VERSION@", project.version
-    replaceIn "RagingLibCore.java"
 }
+
+version = "${project.minecraft.version}-${config.version.mod.major}.${config.version.mod.minor}.${config.version.mod.revis}b"
+
+println "version = "+ version
 
 dependencies {
     // you may put jars on which you depend on in ./libs
@@ -49,9 +57,8 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 	
-	testCompile 'junit:junit:4.11'
     compile 'junit:junit:4.11'
-	compile "mcp.mobius.waila:Waila:1.5.11-RC1_1.7.10"
+    compile "mcp.mobius.waila:Waila:1.5.11-RC1_1.7.10"
 
 }
 
