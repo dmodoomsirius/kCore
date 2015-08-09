@@ -54,12 +54,6 @@ public class TileSolarRF extends TileEntity
         this.markDirty();
     }
 
-    private void keepMaxPower()
-    {
-        energyStored = getMaxPower();
-        this.markDirty();
-    }
-
     public double getGeneration()
     {
         double rte;
