@@ -12,7 +12,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 
 public class PlayerEvents
 {
-
     private static final String kolatraMsg = getKolatraWelcome();
 
     private static String getKolatraWelcome()
@@ -23,7 +22,7 @@ public class PlayerEvents
         sb.append(EnumChatFormatting.AQUA.toString() + ", ");
         sb.append(EnumChatFormatting.AQUA.toString() + "developer of:\n");
         sb.append(EnumChatFormatting.WHITE.toString() + "\n");
-        sb.append(EnumChatFormatting.GOLD.toString() + "RagingLib ");
+        sb.append(EnumChatFormatting.GOLD.toString() + "kCore ");
         sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)\n");
         sb.append(EnumChatFormatting.LIGHT_PURPLE.toString() + "MiningFixCore ");
         if (Loader.isModLoaded("MiningSpeedFix"))
@@ -49,7 +48,7 @@ public class PlayerEvents
 
         if (KCore.isDeobf())
         {
-            ChatComponentText deobfMsg = new ChatComponentText(EnumChatFormatting.GOLD + "RagingLib is running in a development environment!");
+            ChatComponentText deobfMsg = new ChatComponentText(EnumChatFormatting.GOLD + "kCore is running in a development environment!");
             ChatHelper.sendChatComponentToAll(deobfMsg);
         }
     }
