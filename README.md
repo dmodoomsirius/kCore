@@ -1,6 +1,6 @@
 # kCore and Family
 My random writings of code written in Java for the game Minecraft.
 
-You may not redistribute any built or source-code version of this mod, unless given express written permission.
+You can do whatever you want with this, for private use only. Please do not reupload or redistribute this mod anywhere. That's no fun.
 
-You may not include this mod in a mod pack, unless given express written permission.
+Please do not include this in any packs. It is in alpha and highly experimental.
