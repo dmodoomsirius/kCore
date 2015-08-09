@@ -1,5 +1,6 @@
 package ga.Kolatra.kCore;
 
+import ga.Kolatra.kCore.Client.GUI.GUIProxy;
 import ga.Kolatra.kCore.Common.Command.CommandDebug;
 import ga.Kolatra.kCore.Common.CommonProxy;
 import ga.Kolatra.kCore.Common.Config.KCoreConfig;
@@ -19,6 +20,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.classloading.FMLForgePlugin;
 import net.minecraftforge.common.MinecraftForge;
@@ -100,7 +102,7 @@ public class KCore extends KCoreMod
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        CommonProxy.init();
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIProxy());
     }
 
     @Override

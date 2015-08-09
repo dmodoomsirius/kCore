@@ -14,14 +14,14 @@ public class TileSolarRF extends TileEntity
     public TileSolarRF(double maxPower, int powerGen)
     {
         this.maxPower = maxPower;
-        this.generationRate = powerGen;
+        generationRate = powerGen;
     }
 
     public boolean isUnderSun = false;
 
     public static double energyStored;
     public double maxPower = 100000;
-    public double generationRate = 10;
+    public static double generationRate = 10;
 
     public double getMaxPower()
     {
