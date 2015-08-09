@@ -1,5 +1,6 @@
 # kCore and Family
-My random writings of code written in Java for the game Minecraft.
+
+These mods have no direct goal, they will just contain whatever I feel like doing in Minecraft.
 
 You can do whatever you want with this, for private use only. Please do not reupload or redistribute this mod anywhere. That's no fun.
 
