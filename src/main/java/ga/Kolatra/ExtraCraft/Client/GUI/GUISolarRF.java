@@ -1,7 +1,7 @@
 package ga.Kolatra.ExtraCraft.Client.GUI;
 
 import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
-import ga.Kolatra.kCore.Common.GUI.ContainerSolarRF;
+import ga.Kolatra.ExtraCraft.Common.Container.ContainerSolarRF;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.gui.inventory.GuiContainer;

@@ -1,4 +1,4 @@
-package ga.Kolatra.kCore.Common.GUI;
+package ga.Kolatra.ExtraCraft.Common.Container;
 
 import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
 

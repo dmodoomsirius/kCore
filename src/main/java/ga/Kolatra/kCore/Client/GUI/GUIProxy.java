@@ -2,7 +2,7 @@ package ga.Kolatra.kCore.Client.GUI;
 
 import ga.Kolatra.ExtraCraft.Client.GUI.GUISolarRF;
 import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
-import ga.Kolatra.kCore.Common.GUI.ContainerSolarRF;
+import ga.Kolatra.ExtraCraft.Common.Container.ContainerSolarRF;
 import ga.Kolatra.kCore.KCore;
 
 import cpw.mods.fml.common.network.IGuiHandler;
