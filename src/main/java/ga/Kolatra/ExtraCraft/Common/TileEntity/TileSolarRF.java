@@ -51,7 +51,7 @@ public class TileSolarRF extends TileEntity implements IInventory
         this.markDirty();
     }
 
-    public double getGeneration() // TO-DO Figure out ANY way to show this on the GUI, right now it throws NPE because worldObj is null on the client.
+    public double getGeneration() // TODO Figure out ANY way to show this on the GUI, right now it throws NPE because worldObj is null on the client.
     {
         double ret;
 

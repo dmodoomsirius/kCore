@@ -17,6 +17,8 @@ import net.minecraft.world.World;
 
 public class BlockSolarRF extends BlockBase implements ITileEntityProvider
 {
+    private IIcon textureTop;
+
     public BlockSolarRF()
     {
         this.setTextureName("solar_rf");
@@ -33,6 +35,10 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta)
     {
+        if (side == 1) // top
+        {
+            return this.textureTop;
+        }
         return this.blockIcon;
     }
 
@@ -63,5 +69,6 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     public void registerIcons(IIconRegister register)
     {
         this.blockIcon = register.registerIcon(KCore.EXINDEX + "solar_rf");
+        this.textureTop = register.registerIcon(KCore.EXINDEX + "solar_rf_top");
     }
 }
