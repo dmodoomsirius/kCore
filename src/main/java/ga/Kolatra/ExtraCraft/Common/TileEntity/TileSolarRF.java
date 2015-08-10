@@ -1,13 +1,13 @@
 package ga.Kolatra.ExtraCraft.Common.TileEntity;
 
-import ga.Kolatra.kCore.Common.Libraries.PlayerChecks;
+import ga.Kolatra.kCore.KCore;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenDesert;
 
 public class TileSolarRF extends TileEntity implements IInventory
@@ -17,16 +17,10 @@ public class TileSolarRF extends TileEntity implements IInventory
 
     }
 
-    public TileSolarRF(double maxPower, int powerGen)
-    {
-        this.maxPower = maxPower;
-        generationRate = powerGen;
-    }
-
-    public boolean isUnderSun = false;
+    public static boolean isUnderSun;
 
     public static double energyStored;
-    public double maxPower = 100000;
+    public static double maxPower = 100000;
     public static double generationRate = 10;
 
     public double getMaxPower()
@@ -41,17 +35,21 @@ public class TileSolarRF extends TileEntity implements IInventory
 
     public double getProduction()
     {
-        return generationRate;
+        return getGeneration();
     }
 
-    public boolean canFill()
+    public static boolean canFill()
     {
         return energyStored < maxPower;
     }
 
-    public boolean canOperate()
+    public static boolean canOperate()
     {
-        return isUnderSun && canFill();
+        if (isUnderSun && canFill())
+        {
+            return true;
+        }
+        return false;
     }
 
     public void setEnergy(double energy)
@@ -60,22 +58,27 @@ public class TileSolarRF extends TileEntity implements IInventory
         this.markDirty();
     }
 
-    public double getGeneration()
+    public double getGeneration() // TO-DO Figure out ANY way to show this on the GUI, right now it throws NPE because worldObj is null on the client.
     {
-        double rte;
+        double ret;
 
         if (isUnderSun)
         {
-            rte = generationRate;
+            ret = generationRate;
 
-            if (worldObj.getBiomeGenForCoords(xCoord >> 4, zCoord >> 4) instanceof BiomeGenDesert)
+            if (isDesert())
             {
-                rte *= 1.5;
+                ret *= 1.5;
             }
 
-            return rte;
+            return ret;
         }
         return 0;
+    }
+
+    public boolean isDesert()
+    {
+        return worldObj.getBiomeGenForCoords(xCoord, zCoord) instanceof BiomeGenDesert;
     }
 
     @Override
@@ -108,7 +111,7 @@ public class TileSolarRF extends TileEntity implements IInventory
 
             if (canOperate())
             {
-                setEnergy(getEnergyStored() + getProduction());
+                setEnergy(getEnergyStored() + getGeneration());
                 if (energyStored > maxPower)
                     energyStored = maxPower;
             }
