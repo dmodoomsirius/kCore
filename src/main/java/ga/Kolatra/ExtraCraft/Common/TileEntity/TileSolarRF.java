@@ -1,13 +1,10 @@
 package ga.Kolatra.ExtraCraft.Common.TileEntity;
 
-import ga.Kolatra.kCore.KCore;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenDesert;
 
 public class TileSolarRF extends TileEntity implements IInventory
@@ -45,11 +42,7 @@ public class TileSolarRF extends TileEntity implements IInventory
 
     public static boolean canOperate()
     {
-        if (isUnderSun && canFill())
-        {
-            return true;
-        }
-        return false;
+        return isUnderSun && canFill();
     }
 
     public void setEnergy(double energy)
