@@ -8,6 +8,7 @@ import ga.Kolatra.kCore.Common.Events.PlayerEvents;
 import ga.Kolatra.kCore.Common.Item.CreativeTab;
 import ga.Kolatra.kCore.Common.Libraries.LogHelper;
 import ga.Kolatra.kCore.Common.Libraries.Reference;
+import ga.Kolatra.kCore.Compatibility.ModCompat;
 
 import java.io.File;
 import java.util.UUID;

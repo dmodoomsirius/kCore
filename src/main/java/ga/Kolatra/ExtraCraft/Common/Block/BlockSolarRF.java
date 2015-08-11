@@ -1,5 +1,6 @@
 package ga.Kolatra.ExtraCraft.Common.Block;
 
+import cofh.api.energy.IEnergyConnection;
 import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
 import ga.Kolatra.kCore.Common.Block.BlockBase;
 import ga.Kolatra.kCore.KCore;
@@ -14,8 +15,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockSolarRF extends BlockBase implements ITileEntityProvider
+public class BlockSolarRF extends BlockBase implements ITileEntityProvider, IEnergyConnection
 {
     private IIcon textureTop;
 
@@ -70,5 +72,15 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     {
         this.blockIcon = register.registerIcon(KCore.EXINDEX + "solar_rf");
         this.textureTop = register.registerIcon(KCore.EXINDEX + "solar_rf_top");
+    }
+
+    @Override
+    public boolean canConnectEnergy(ForgeDirection from)
+    {
+        if (from == ForgeDirection.UP)
+        {
+            return false;
+        }
+        return true;
     }
 }

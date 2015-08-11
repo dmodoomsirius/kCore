@@ -1,18 +1,12 @@
 package ga.Kolatra.ExtraCraft.Common.TileEntity;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.biome.BiomeGenDesert;
 
-public class TileSolarRF extends TileEntity implements IInventory
+public class TileSolarRF extends TileEntity
 {
-    public TileSolarRF()
-    {
-
-    }
+    public TileSolarRF() {}
 
     public static boolean isUnderSun;
 
@@ -75,15 +69,17 @@ public class TileSolarRF extends TileEntity implements IInventory
     }
 
     @Override
-    public void readFromNBT(NBTTagCompound tagCompound)
+    public void readFromNBT(NBTTagCompound nbt)
     {
-        super.readFromNBT(tagCompound);
+        super.readFromNBT(nbt);
+        energyStored = nbt.getDouble("Energy");
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound tagCompound)
+    public void writeToNBT(NBTTagCompound nbt)
     {
-        super.writeToNBT(tagCompound);
+        super.writeToNBT(nbt);
+        nbt.setDouble("Energy", energyStored);
     }
 
     @Override
@@ -109,98 +105,5 @@ public class TileSolarRF extends TileEntity implements IInventory
                     energyStored = maxPower;
             }
         }
-    }
-
-    private ItemStack[] inv;
-
-    @Override
-    public int getSizeInventory()
-    {
-        return 1;
-    }
-
-    @Override
-    public ItemStack getStackInSlot(int slotIn)
-    {
-        return inv[slotIn];
-    }
-
-    @Override
-    public ItemStack decrStackSize(int slot, int count)
-    {
-        ItemStack stack = getStackInSlot(slot);
-        if (stack != null)
-        {
-            if (stack.stackSize <= count)
-            {
-                setInventorySlotContents(slot, null);
-            }
-            else
-            {
-                stack = stack.splitStack(slot);
-                if (stack.stackSize == 0)
-                {
-                    setInventorySlotContents(slot, null);
-                }
-            }
-        }
-        return stack;
-    }
-
-    @Override
-    public ItemStack getStackInSlotOnClosing(int slot)
-    {
-        ItemStack stack = getStackInSlot(slot);
-        if (stack != null)
-        {
-            setInventorySlotContents(slot, null);
-        }
-        return stack;
-    }
-
-    @Override
-    public void setInventorySlotContents(int slot, ItemStack stack)
-    {
-        inv[slot] = stack;
-        if (stack != null && stack.stackSize > getInventoryStackLimit())
-        {
-            stack.stackSize = getInventoryStackLimit();
-        }
-    }
-
-    @Override
-    public String getInventoryName()
-    {
-        return "extrastuff.tilesolarrf";
-    }
-
-    @Override
-    public boolean isCustomInventoryName()
-    {
-        return false;
-    }
-
-    @Override
-    public int getInventoryStackLimit()
-    {
-        return 64;
-    }
-
-    @Override
-    public boolean isUseableByPlayer(EntityPlayer player)
-    {
-        return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
-    }
-
-    @Override
-    public void openChest() {}
-
-    @Override
-    public void closeChest() {}
-
-    @Override
-    public boolean isItemValidForSlot(int index, ItemStack stack)
-    {
-        return true;
     }
 }
