@@ -115,7 +115,7 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
     public void writeToNBT(NBTTagCompound nbt)
     {
         super.writeToNBT(nbt);
-        nbt.setDouble("Energy", energyStored);
+        nbt.setInteger("Energy", energyStored);
     }
 
     @Override
