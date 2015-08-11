@@ -1,6 +1,7 @@
 package ga.Kolatra.ExtraCraft.Common.TileEntity;
 
 import cofh.api.energy.IEnergyConnection;
+import cofh.api.energy.IEnergyHandler;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyStorage;
 
@@ -18,12 +19,7 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
     public static int energyStored;
     public static int maxPower = 100000;
     public static int generationRate = 10;
-    public int maxExtract = 100;
-
-    public int getMaxPower()
-    {
-        return maxPower;
-    }
+    public int maxExtraction = 100;
 
     @Override
     public int receiveEnergy(int maxReceive, boolean simulate)
@@ -34,12 +30,10 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
     @Override
     public int extractEnergy(int maxExtract, boolean simulate)
     {
-        int energyExtracted = Math.min(energyStored, Math.min(this.maxExtract, maxExtract));
+        int energyExtracted = Math.min(energyStored, Math.min(this.maxExtraction, maxExtract));
 
-        if (!simulate)
-        {
-            energyStored -= energyExtracted;
-        }
+        energyStored -= energyExtracted;
+
         return energyExtracted;
     }
 
@@ -52,7 +46,7 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
     @Override
     public int getMaxEnergyStored()
     {
-        return 0;
+        return maxPower;
     }
 
     public int getProduction()
@@ -72,7 +66,7 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
 
     public void setEnergy(int energy)
     {
-        energyStored = Math.max(Math.min(energy, getMaxPower()), 0);
+        energyStored = Math.max(Math.min(energy, getMaxEnergyStored()), 0);
         this.markDirty();
     }
 
@@ -143,9 +137,9 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
     {
         if (from == ForgeDirection.UP)
         {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     @Override
@@ -157,7 +151,7 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
         }
         else
         {
-            int energyExtracted = Math.min(energyStored, Math.min(this.maxExtract, maxExtract));
+            int energyExtracted = Math.min(energyStored, Math.min(this.maxExtraction, maxExtract));
 
             if (!simulate)
             {
@@ -176,6 +170,6 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
     @Override
     public int getMaxEnergyStored(ForgeDirection from)
     {
-        return getMaxPower();
+        return getMaxEnergyStored();
     }
 }

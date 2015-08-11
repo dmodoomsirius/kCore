@@ -40,7 +40,7 @@ public class GUISolarRF extends GuiContainer
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
         fontRendererObj.drawString("Solar Panel", 8, 6, 4210752);
-        fontRendererObj.drawString("Stored energy: " + TileSolarRF.energyStored + " RF.", 8, 36, 4210752);
+        fontRendererObj.drawString("Stored energy: " + TileSolarRF.energyStored + " RF", 8, 36, 4210752);
         fontRendererObj.drawString("Machine operating: " + TileSolarRF.canOperate(), 8, 66, 4210752);
     }
 }
