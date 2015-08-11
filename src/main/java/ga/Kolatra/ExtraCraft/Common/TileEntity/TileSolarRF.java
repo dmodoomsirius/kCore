@@ -1,33 +1,65 @@
 package ga.Kolatra.ExtraCraft.Common.TileEntity;
 
 import cofh.api.energy.IEnergyConnection;
+import cofh.api.energy.IEnergyStorage;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.biome.BiomeGenDesert;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileSolarRF extends TileEntity implements IEnergyConnection
+public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnergyStorage
 {
     public TileSolarRF() {}
 
     public static boolean isUnderSun;
 
-    public static double energyStored;
-    public static double maxPower = 100000;
-    public static double generationRate = 10;
+    public static int energyStored;
+    public static int maxPower = 100000;
+    public static int generationRate = 10;
+    public int maxExtract = 100;
 
-    public double getMaxPower()
+    public int getMaxPower()
     {
         return maxPower;
     }
 
-    public double getEnergyStored()
+    @Override
+    public int receiveEnergy(int maxReceive, boolean simulate)
+    {
+        return 0;
+    }
+
+    @Override
+    public int extractEnergy(int maxExtract, boolean simulate)
+    {
+        int energyExtracted = Math.min(energyStored, Math.min(this.maxExtract, maxExtract));
+
+        if (!simulate)
+        {
+            energyStored -= energyExtracted;
+        }
+        return energyExtracted;
+    }
+
+    @Override
+    public int getEnergyStored()
     {
         return energyStored;
     }
 
-    public double getProduction()
+    public int getTotalStorage()
+    {
+        return maxPower;
+    }
+
+    @Override
+    public int getMaxEnergyStored()
+    {
+        return 0;
+    }
+
+    public int getProduction()
     {
         return getGeneration();
     }
@@ -42,15 +74,15 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection
         return isUnderSun && canFill();
     }
 
-    public void setEnergy(double energy)
+    public void setEnergy(int energy)
     {
         energyStored = Math.max(Math.min(energy, getMaxPower()), 0);
         this.markDirty();
     }
 
-    public double getGeneration() // TODO Figure out ANY way to show this on the GUI, right now it throws NPE because worldObj is null on the client.
+    public int getGeneration() // TODO Figure out ANY way to show this on the GUI, right now it throws NPE because worldObj is null on the client.
     {
-        double ret;
+        int ret;
 
         if (isUnderSun)
         {
@@ -75,7 +107,7 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection
     public void readFromNBT(NBTTagCompound nbt)
     {
         super.readFromNBT(nbt);
-        energyStored = nbt.getDouble("Energy");
+        energyStored = nbt.getInteger("Energy");
     }
 
     @Override
@@ -103,7 +135,7 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection
 
             if (canOperate())
             {
-                setEnergy(getEnergyStored() + getGeneration());
+                setEnergy(getTotalStorage() + getGeneration());
                 if (energyStored > maxPower)
                     energyStored = maxPower;
             }
