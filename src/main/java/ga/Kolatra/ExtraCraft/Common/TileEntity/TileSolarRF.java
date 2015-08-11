@@ -1,6 +1,7 @@
 package ga.Kolatra.ExtraCraft.Common.TileEntity;
 
 import cofh.api.energy.IEnergyConnection;
+import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyStorage;
 
 import net.minecraft.nbt.NBTTagCompound;
@@ -8,7 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.biome.BiomeGenDesert;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnergyStorage
+public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnergyStorage, IEnergyProvider
 {
     public TileSolarRF() {}
 
@@ -150,5 +151,36 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
+    {
+        if (from == ForgeDirection.UP)
+        {
+            return 0;
+        }
+        else
+        {
+            int energyExtracted = Math.min(energyStored, Math.min(this.maxExtract, maxExtract));
+
+            if (!simulate)
+            {
+                energyStored -= energyExtracted;
+            }
+            return energyExtracted;
+        }
+    }
+
+    @Override
+    public int getEnergyStored(ForgeDirection from)
+    {
+        return getEnergyStored();
+    }
+
+    @Override
+    public int getMaxEnergyStored(ForgeDirection from)
+    {
+        return getMaxPower();
     }
 }
