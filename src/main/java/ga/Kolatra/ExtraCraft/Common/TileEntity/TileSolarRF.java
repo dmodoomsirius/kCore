@@ -1,10 +1,13 @@
 package ga.Kolatra.ExtraCraft.Common.TileEntity;
 
+import cofh.api.energy.IEnergyConnection;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.biome.BiomeGenDesert;
+import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileSolarRF extends TileEntity
+public class TileSolarRF extends TileEntity implements IEnergyConnection
 {
     public TileSolarRF() {}
 
@@ -105,5 +108,15 @@ public class TileSolarRF extends TileEntity
                     energyStored = maxPower;
             }
         }
+    }
+
+    @Override
+    public boolean canConnectEnergy(ForgeDirection from)
+    {
+        if (from == ForgeDirection.UP)
+        {
+            return true;
+        }
+        return false;
     }
 }

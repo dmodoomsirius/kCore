@@ -17,7 +17,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockSolarRF extends BlockBase implements ITileEntityProvider, IEnergyConnection
+public class BlockSolarRF extends BlockBase implements ITileEntityProvider
 {
     private IIcon textureTop;
 
@@ -72,15 +72,5 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider, IEne
     {
         this.blockIcon = register.registerIcon(KCore.EXINDEX + "solar_rf");
         this.textureTop = register.registerIcon(KCore.EXINDEX + "solar_rf_top");
-    }
-
-    @Override
-    public boolean canConnectEnergy(ForgeDirection from)
-    {
-        if (from == ForgeDirection.UP)
-        {
-            return false;
-        }
-        return true;
     }
 }
