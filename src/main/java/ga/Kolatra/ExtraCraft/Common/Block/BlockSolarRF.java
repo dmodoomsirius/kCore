@@ -1,6 +1,5 @@
 package ga.Kolatra.ExtraCraft.Common.Block;
 
-import cofh.api.energy.IEnergyConnection;
 import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
 import ga.Kolatra.kCore.Common.Block.BlockBase;
 import ga.Kolatra.kCore.KCore;
@@ -9,13 +8,13 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockSolarRF extends BlockBase implements ITileEntityProvider
 {
@@ -72,5 +71,14 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     {
         this.blockIcon = register.registerIcon(KCore.EXINDEX + "solar_rf");
         this.textureTop = register.registerIcon(KCore.EXINDEX + "solar_rf_top");
+    }
+
+    @Override
+    public void breakBlock(World world, int x, int y, int z, Block blockBroken, int meta)
+    {
+        if (world.getTileEntity(x, y, z) instanceof TileSolarRF)
+        {
+            TileSolarRF.energyStored = 0;
+        }
     }
 }
