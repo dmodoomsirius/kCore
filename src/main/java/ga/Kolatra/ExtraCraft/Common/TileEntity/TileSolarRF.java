@@ -49,11 +49,6 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
         return energyStored;
     }
 
-    public int getTotalStorage()
-    {
-        return maxPower;
-    }
-
     @Override
     public int getMaxEnergyStored()
     {
@@ -81,7 +76,7 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
         this.markDirty();
     }
 
-    public int getGeneration() // TODO Figure out ANY way to show this on the GUI, right now it throws NPE because worldObj is null on the client.
+    public int getGeneration()
     {
         int ret;
 
@@ -136,7 +131,7 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
 
             if (canOperate())
             {
-                setEnergy(getTotalStorage() + getGeneration());
+                setEnergy(getEnergyStored() + getGeneration());
                 if (energyStored > maxPower)
                     energyStored = maxPower;
             }

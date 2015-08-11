@@ -22,8 +22,8 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
 
     public BlockSolarRF()
     {
-        this.setTextureName("solar_rf");
-        this.setUnlocalizedName("solar_rf");
+        this.setBlockTextureName("solar_rf");
+        this.setBlockName("solar_rf");
     }
 
     @Override
@@ -67,7 +67,7 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister register)
+    public void registerBlockIcons(IIconRegister register)
     {
         this.blockIcon = register.registerIcon(KCore.EXINDEX + "solar_rf");
         this.textureTop = register.registerIcon(KCore.EXINDEX + "solar_rf_top");
