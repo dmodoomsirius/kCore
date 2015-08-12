@@ -1,7 +1,6 @@
 package ga.Kolatra.ExtraCraft.Common.TileEntity;
 
 import cofh.api.energy.IEnergyConnection;
-import cofh.api.energy.IEnergyHandler;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyStorage;
 
@@ -19,7 +18,7 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
     public static int energyStored;
     public static int maxPower = 100000;
     public static int generationRate = 10;
-    public int maxExtraction = 100;
+    public int maxExtraction;
 
     @Override
     public int receiveEnergy(int maxReceive, boolean simulate)

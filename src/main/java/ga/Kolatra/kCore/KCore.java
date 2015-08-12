@@ -13,6 +13,8 @@ import ga.Kolatra.kCore.Compatibility.ModCompat;
 import java.io.File;
 import java.util.UUID;
 
+import cpw.mods.fml.client.GuiIngameModOptions;
+import cpw.mods.fml.client.GuiModList;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -21,9 +23,12 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import net.minecraft.client.gui.GuiIngameMenu;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.classloading.FMLForgePlugin;
+import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION)
@@ -127,5 +132,12 @@ public class KCore extends KCoreMod
             debugMode = false;
             LogHelper.logInfo("Debug mode disabled.");
         }
+    }
+
+    @SubscribeEvent
+    public void onEvent(GuiOpenEvent event)
+    {
+        if (event.gui instanceof GuiIngameModOptions)
+            event.gui = new GuiModList(new GuiIngameMenu());
     }
 }
