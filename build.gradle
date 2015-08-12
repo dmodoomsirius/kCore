@@ -27,10 +27,6 @@ archivesBaseName = "kCore"
 
 println "Current Minecraft version = " + minecraft.apiVersion
 
-ext.configFile = file('gradle.properties')
-
-ext.config = parseConfig(configFile)
-
 def currentJvm = org.gradle.internal.jvm.Jvm.current()
 println "Current Java version = " + currentJvm
 println archivesBaseName 
@@ -43,17 +39,9 @@ minecraft {
     replace "@VERSION@", project.version
 }
 
-version = "${project.minecraft.version}-${config.version.mod.major}.${config.version.mod.minor}.${config.version.mod.revis}b"
+version = "${project.minecraft.version}-${project.version.mod.major}.${project.version.mod.minor}.${projc.version.mod.revis}"
 
 println "version = "+ version
-
-def parseConfig(File config) {
-    config.withReader {
-        def prop = new Properties()
-        prop.load(it)
-        return (new ConfigSlurper().parse(prop))
-    }
-}
 
 dependencies {
     // you may put jars on which you depend on in ./libs
