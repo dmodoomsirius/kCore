@@ -27,10 +27,6 @@ archivesBaseName = "kCore"
 
 println "Current Minecraft version = " + minecraft.apiVersion
 
-ext.configFile = file('gradle.properties')
-
-ext.config = parseConfig(configFile)
-
 def currentJvm = org.gradle.internal.jvm.Jvm.current()
 println "Current Java version = " + currentJvm
 println archivesBaseName 
@@ -43,17 +39,10 @@ minecraft {
     replace "@VERSION@", project.version
 }
 
-version = "${project.minecraft.version}-${config.version.mod.major}.${config.version.mod.minor}.${config.version.mod.revis}b"
+version = "${project.minecraft.version}-${version_major}.${version_minor}.${version_revis}"
+
 
 println "version = "+ version
-
-def parseConfig(File config) {
-    config.withReader {
-        def prop = new Properties()
-        prop.load(it)
-        return (new ConfigSlurper().parse(prop))
-    }
-}
 
 dependencies {
     // you may put jars on which you depend on in ./libs
@@ -72,6 +61,32 @@ dependencies {
     compile 'junit:junit:4.11'
     compile "mcp.mobius.waila:Waila:1.5.11-RC1_1.7.10"
 
+}
+
+repositories {
+    maven {
+        name "Mobius Repo"
+        url "http://mobiusstrip.eu/maven"
+    }
+    maven {
+        name 'CB Repo'
+        url "http://chickenbones.net/maven/"
+    }
+    maven { 
+        name 'OC Maven'
+        url = "http://maven.cil.li" }
+    maven {
+        name = "ic2"
+        url = "http://maven.ic2.player.to"
+    }
+    maven{
+        name="bbm"
+        url="http://ci.builtbroken.com/maven"
+    }
+    maven {
+        name "xcompwiz"
+        url "http://maven.xcompwiz.com"
+    }
 }
 
 processResources
