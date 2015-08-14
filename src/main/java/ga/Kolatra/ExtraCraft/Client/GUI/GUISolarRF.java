@@ -2,6 +2,7 @@ package ga.Kolatra.ExtraCraft.Client.GUI;
 
 import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
 import ga.Kolatra.ExtraCraft.Common.Container.ContainerSolarRF;
+import ga.Kolatra.kCore.Common.Libraries.Reference;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -11,14 +12,12 @@ import net.minecraft.util.ResourceLocation;
 
 public class GUISolarRF extends GuiContainer
 {
-    private static String DOMAIN = "extrastuff:";
-    private static String GUI_DIRECTORY = "textures/gui/";
     private static TileSolarRF te;
     private static InventoryPlayer player;
 
     static Container container = new ContainerSolarRF(player, te);
 
-    public static final ResourceLocation texture = new ResourceLocation(DOMAIN + GUI_DIRECTORY + "solarrf.png");
+    public static final ResourceLocation texture = new ResourceLocation(Reference.PREFIX + Reference.GUI_DIRECTORY + "solarrf.png");
 
     public GUISolarRF(Container container)
     {

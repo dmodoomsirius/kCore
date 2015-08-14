@@ -1,4 +1,4 @@
-package ga.Kolatra.kCore.Compatibility;
+package ga.Kolatra.kCore.Common.Compatibility;
 
 import cpw.mods.fml.common.Loader;
 

@@ -1,9 +1,9 @@
 package ga.Kolatra.kCore.Client.GUI;
 
 import ga.Kolatra.ExtraCraft.Client.GUI.GUISolarRF;
-import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
 import ga.Kolatra.ExtraCraft.Common.Container.ContainerSolarRF;
-import ga.Kolatra.kCore.KCore;
+import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
+import ga.Kolatra.kCore.Common.Libraries.Reference;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +17,7 @@ public class GUIProxy implements IGuiHandler
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
     {
         TileEntity tileEntity = world.getTileEntity(x, y, z);
-        if (ID == KCore.GUI_SOLAR_RF && tileEntity instanceof TileSolarRF)
+        if (ID == Reference.GUI_SOLAR_RF && tileEntity instanceof TileSolarRF)
         {
             TileSolarRF tileSolarRF = new TileSolarRF();
             return new ContainerSolarRF(player.inventory, tileSolarRF);
@@ -31,7 +31,7 @@ public class GUIProxy implements IGuiHandler
         TileEntity tileEntity = world.getTileEntity(x, y, z);
         TileSolarRF solarTile = new TileSolarRF();
         Container solarCon = new ContainerSolarRF(player.inventory, solarTile);
-        if (ID == KCore.GUI_SOLAR_RF && tileEntity instanceof TileSolarRF)
+        if (ID == Reference.GUI_SOLAR_RF && tileEntity instanceof TileSolarRF)
         {
             return new GUISolarRF(solarCon);
         }
