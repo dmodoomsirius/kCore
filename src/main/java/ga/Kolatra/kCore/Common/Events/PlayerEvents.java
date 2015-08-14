@@ -6,8 +6,10 @@ import ga.Kolatra.kCore.KCore;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
 public class PlayerEvents
@@ -59,6 +61,18 @@ public class PlayerEvents
         if (evt.entityPlayer.getCommandSenderName().equals("Kolatra"))
         {
             evt.displayname = EnumChatFormatting.DARK_RED + "Kolatra";
+        }
+    }
+
+    @SubscribeEvent
+    public void trashItemOnThrow(ItemTossEvent event)
+    {
+        if (event.player != null)
+        {
+            if (KCore.trashItemsOnThrow)
+            {
+                event.setCanceled(true);
+            }
         }
     }
 }

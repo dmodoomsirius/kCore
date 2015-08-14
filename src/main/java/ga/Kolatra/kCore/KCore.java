@@ -2,6 +2,7 @@ package ga.Kolatra.kCore;
 
 import ga.Kolatra.kCore.Client.GUI.GUIProxy;
 import ga.Kolatra.kCore.Common.Command.CommandDebug;
+import ga.Kolatra.kCore.Common.Command.CommandTrash;
 import ga.Kolatra.kCore.Common.CommonProxy;
 import ga.Kolatra.kCore.Common.Config.KCoreConfig;
 import ga.Kolatra.kCore.Common.Events.PlayerEvents;
@@ -27,6 +28,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraft.client.gui.GuiIngameMenu;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.classloading.FMLForgePlugin;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,6 +39,7 @@ public class KCore extends KCoreMod
     public static final CreativeTabs cTab = new CreativeTab();
     public static final UUID KolatraUUID = UUID.fromString("1d5e02e0-7e54-4e9e-8d9c-548b22c02daf");
     public static boolean debugMode;
+    public static boolean trashItemsOnThrow;
     public static final String EXINDEX = "extrastuff:";
 
     private static int modGUIIndex = 0;
@@ -54,7 +57,7 @@ public class KCore extends KCoreMod
     {
         if (isKolatrasComputer())
         {
-            LogHelper.logInfo("Loading on Tyler's computer. Dev features enabled.");
+            LogHelper.info("Loading on Tyler's computer. Dev features enabled.");
         }
     }
 
@@ -122,6 +125,7 @@ public class KCore extends KCoreMod
     public void registerCommands(FMLServerStartingEvent event)
     {
         event.registerServerCommand(new CommandDebug());
+        event.registerServerCommand(new CommandTrash());
     }
 
     @EventHandler
@@ -130,12 +134,12 @@ public class KCore extends KCoreMod
         if (debugMode)
         {
             debugMode = false;
-            LogHelper.logInfo("Debug mode disabled.");
+            LogHelper.info("Debug mode disabled.");
         }
     }
 
     @SubscribeEvent
-    public void onEvent(GuiOpenEvent event)
+    public void onGuiEvent(GuiOpenEvent event)
     {
         if (event.gui instanceof GuiIngameModOptions)
             event.gui = new GuiModList(new GuiIngameMenu());

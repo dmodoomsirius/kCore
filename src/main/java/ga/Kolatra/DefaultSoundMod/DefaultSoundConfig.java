@@ -1,7 +1,5 @@
 package ga.Kolatra.DefaultSoundMod;
 
-import ga.Kolatra.kCore.Common.Libraries.LogHelper;
-
 import java.io.File;
 
 import net.minecraftforge.common.config.Configuration;
@@ -49,7 +47,6 @@ public class DefaultSoundConfig
         }
         catch (Exception e)
         {
-            LogHelper.logFatal("Caught exception while loading Config!");
             e.printStackTrace();
         }
         finally

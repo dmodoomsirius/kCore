@@ -14,22 +14,22 @@ public final class LogHelper
         logger.log(level, msg);
     }
 
-    public static void logInfo(String msg)
+    public static void info(String msg)
     {
         logger.info(msg);
     }
 
-    public static void logWarn(String msg)
+    public static void warn(String msg)
     {
         logger.warn(msg);
     }
 
-    public static void logFatal(String msg)
+    public static void fatal(String msg)
     {
         logger.fatal(msg);
     }
 
-    public static void logDebug(String msg)
+    public static void debug(String msg)
     {
         if (KCoreConfig.logDebug)
         {

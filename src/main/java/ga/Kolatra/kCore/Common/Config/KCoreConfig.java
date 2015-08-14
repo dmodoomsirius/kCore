@@ -22,7 +22,7 @@ public class KCoreConfig
         }
         catch (Exception e)
         {
-            LogHelper.logFatal("Caught exception while loading Config!");
+            LogHelper.fatal("Caught exception while loading Config!");
             e.printStackTrace();
         }
         finally
