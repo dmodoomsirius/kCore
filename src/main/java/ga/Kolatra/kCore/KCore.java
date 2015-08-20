@@ -1,6 +1,6 @@
 package ga.kolatra.kcore;
 
-import ga.kolatra.kcore.Client.gui.GUIProxy;
+import ga.kolatra.kcore.client.gui.GUIProxy;
 import ga.kolatra.kcore.common.command.CommandDebug;
 import ga.kolatra.kcore.common.command.CommandTrash;
 import ga.kolatra.kcore.common.config.KCoreConfig;

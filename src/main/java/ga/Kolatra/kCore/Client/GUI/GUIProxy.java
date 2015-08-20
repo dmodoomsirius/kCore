@@ -1,4 +1,4 @@
-package ga.kolatra.kcore.Client.gui;
+package ga.kolatra.kcore.client.gui;
 
 import ga.kolatra.extracraft.client.gui.GUISolarRF;
 import ga.kolatra.extracraft.common.container.ContainerSolarRF;

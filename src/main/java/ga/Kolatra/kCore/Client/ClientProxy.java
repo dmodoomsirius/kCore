@@ -1,4 +1,4 @@
-package ga.kolatra.kcore.Client;
+package ga.kolatra.kcore.client;
 
 import ga.kolatra.kcore.common.CommonProxy;
 
