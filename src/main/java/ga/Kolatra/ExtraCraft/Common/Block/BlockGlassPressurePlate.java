@@ -18,6 +18,11 @@ public class BlockGlassPressurePlate extends BlockPressurePlate
         this.setBlockName("glass_pressure");
     }
 
+    public BlockGlassPressurePlate()
+    {
+        this("glass_pressure", Material.glass, Sensitivity.everything);
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta)

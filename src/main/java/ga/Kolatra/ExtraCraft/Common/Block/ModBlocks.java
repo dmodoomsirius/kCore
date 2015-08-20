@@ -4,14 +4,12 @@ import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockPressurePlate.Sensitivity;
-import net.minecraft.block.material.Material;
 
 public class ModBlocks
 {
     public static final Block blockSolarRF = new BlockSolarRF();
     public static final Block blockInstEx = new BlockInstExplosive();
-    public static final Block blockGlassPressure = new BlockGlassPressurePlate("glass_pressure", Material.glass, Sensitivity.everything);
+    public static final Block blockGlassPressure = new BlockGlassPressurePlate();
 
     public static void register()
     {
