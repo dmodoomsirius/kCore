@@ -4,8 +4,6 @@ import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
 import ga.Kolatra.kCore.Common.Block.BlockBase;
 import ga.Kolatra.kCore.KCore;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -41,12 +39,6 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
             return this.textureTop;
         }
         return this.blockIcon;
-    }
-
-    @Override
-    public int quantityDropped(Random random)
-    {
-        return 1;
     }
 
     @Override

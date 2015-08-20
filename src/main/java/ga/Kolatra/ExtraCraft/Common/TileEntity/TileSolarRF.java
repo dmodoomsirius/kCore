@@ -134,11 +134,7 @@ public class TileSolarRF extends TileEntity implements IEnergyConnection, IEnerg
     @Override
     public boolean canConnectEnergy(ForgeDirection from)
     {
-        if (from == ForgeDirection.UP)
-        {
-            return false;
-        }
-        return true;
+        return from != ForgeDirection.UP;
     }
 
     @Override
