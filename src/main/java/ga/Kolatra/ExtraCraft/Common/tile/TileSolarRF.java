@@ -1,4 +1,4 @@
-package ga.Kolatra.ExtraCraft.Common.TileEntity;
+package ga.kolatra.extracraft.common.tile;
 
 import cofh.api.energy.IEnergyConnection;
 import cofh.api.energy.IEnergyProvider;

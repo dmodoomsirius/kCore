@@ -1,6 +1,6 @@
-package ga.Kolatra.kCore.Common.Item;
+package ga.kolatra.kcore.common.item;
 
-import ga.Kolatra.kCore.KCore;
+import ga.kolatra.kcore.KCore;
 
 import net.minecraft.item.Item;
 

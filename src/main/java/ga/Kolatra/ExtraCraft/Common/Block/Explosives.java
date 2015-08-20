@@ -1,6 +1,6 @@
-package ga.Kolatra.ExtraCraft.Common.Block;
+package ga.kolatra.extracraft.common.block;
 
-import ga.Kolatra.kCore.Common.Block.BlockBase;
+import ga.kolatra.kcore.common.block.BlockBase;
 
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;

@@ -1,6 +1,6 @@
-package ga.Kolatra.ExtraCraft.Common.Block;
+package ga.kolatra.extracraft.common.block;
 
-import ga.Kolatra.kCore.KCore;
+import ga.kolatra.kcore.KCore;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

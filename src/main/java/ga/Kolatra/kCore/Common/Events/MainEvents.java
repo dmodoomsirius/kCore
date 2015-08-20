@@ -1,4 +1,4 @@
-package ga.Kolatra.kCore.Common.Events;
+package ga.kolatra.kcore.common.events;
 
 public class MainEvents
 {

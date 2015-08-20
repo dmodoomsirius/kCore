@@ -1,6 +1,6 @@
-package ga.Kolatra.ExtraCraft.Common.Item;
+package ga.kolatra.extracraft.common.item;
 
-import ga.Kolatra.kCore.Common.Item.ItemBase;
+import ga.kolatra.kcore.common.item.ItemBase;
 
 public class ItemWrench extends ItemBase
 {

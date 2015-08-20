@@ -1,12 +1,11 @@
-package ga.Kolatra.kCore.Common.Events;
+package ga.kolatra.kcore.common.events;
 
-import ga.Kolatra.kCore.Common.Libraries.ChatHelper;
-import ga.Kolatra.kCore.Common.Libraries.PlayerChecks;
-import ga.Kolatra.kCore.KCore;
+import ga.kolatra.kcore.common.libraries.ChatHelper;
+import ga.kolatra.kcore.common.libraries.PlayerChecks;
+import ga.kolatra.kcore.KCore;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.event.entity.item.ItemTossEvent;

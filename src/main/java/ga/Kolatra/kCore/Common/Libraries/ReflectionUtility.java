@@ -1,4 +1,4 @@
-package ga.Kolatra.kCore.Common.Libraries;
+package ga.kolatra.kcore.common.libraries;
 
 import org.apache.logging.log4j.Level;
 

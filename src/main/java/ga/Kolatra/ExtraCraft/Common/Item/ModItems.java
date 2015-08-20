@@ -1,4 +1,4 @@
-package ga.Kolatra.ExtraCraft.Common.Item;
+package ga.kolatra.extracraft.common.item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;

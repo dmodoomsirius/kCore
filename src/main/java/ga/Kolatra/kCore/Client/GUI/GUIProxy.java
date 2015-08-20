@@ -1,9 +1,9 @@
-package ga.Kolatra.kCore.Client.GUI;
+package ga.kolatra.kcore.Client.gui;
 
-import ga.Kolatra.ExtraCraft.Client.GUI.GUISolarRF;
-import ga.Kolatra.ExtraCraft.Common.Container.ContainerSolarRF;
-import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
-import ga.Kolatra.kCore.Common.Libraries.Reference;
+import ga.kolatra.extracraft.client.gui.GUISolarRF;
+import ga.kolatra.extracraft.common.container.ContainerSolarRF;
+import ga.kolatra.extracraft.common.tile.TileSolarRF;
+import ga.kolatra.kcore.common.libraries.Reference;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;

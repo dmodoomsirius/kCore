@@ -1,6 +1,6 @@
-package ga.Kolatra.kCore.Common.Network;
+package ga.kolatra.kcore.common.network;
 
-import ga.Kolatra.kCore.Common.Libraries.Reference;
+import ga.kolatra.kcore.common.libraries.Reference;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;

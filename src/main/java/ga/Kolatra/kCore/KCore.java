@@ -1,14 +1,14 @@
-package ga.Kolatra.kCore;
+package ga.kolatra.kcore;
 
-import ga.Kolatra.kCore.Client.GUI.GUIProxy;
-import ga.Kolatra.kCore.Common.Command.CommandDebug;
-import ga.Kolatra.kCore.Common.Command.CommandTrash;
-import ga.Kolatra.kCore.Common.Config.KCoreConfig;
-import ga.Kolatra.kCore.Common.Events.MainEvents;
-import ga.Kolatra.kCore.Common.Events.PlayerEvents;
-import ga.Kolatra.kCore.Common.Item.CreativeTab;
-import ga.Kolatra.kCore.Common.Libraries.LogHelper;
-import ga.Kolatra.kCore.Common.Libraries.Reference;
+import ga.kolatra.kcore.Client.gui.GUIProxy;
+import ga.kolatra.kcore.common.command.CommandDebug;
+import ga.kolatra.kcore.common.command.CommandTrash;
+import ga.kolatra.kcore.common.config.KCoreConfig;
+import ga.kolatra.kcore.common.events.MainEvents;
+import ga.kolatra.kcore.common.events.PlayerEvents;
+import ga.kolatra.kcore.common.item.CreativeTab;
+import ga.kolatra.kcore.common.libraries.LogHelper;
+import ga.kolatra.kcore.common.libraries.Reference;
 
 import java.io.File;
 import java.util.UUID;

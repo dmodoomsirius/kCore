@@ -1,6 +1,6 @@
-package ga.Kolatra.kCore.Common.Config;
+package ga.kolatra.kcore.common.config;
 
-import ga.Kolatra.kCore.Common.Libraries.LogHelper;
+import ga.kolatra.kcore.common.libraries.LogHelper;
 
 import java.io.File;
 

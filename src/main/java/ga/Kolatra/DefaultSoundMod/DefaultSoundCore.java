@@ -1,10 +1,9 @@
-package ga.Kolatra.DefaultSoundMod;
+package ga.kolatra.defaultsoundmod;
 
 import java.io.File;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.SoundCategory;

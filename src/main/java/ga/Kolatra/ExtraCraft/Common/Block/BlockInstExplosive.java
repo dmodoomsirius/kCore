@@ -1,4 +1,4 @@
-package ga.Kolatra.ExtraCraft.Common.Block;
+package ga.kolatra.extracraft.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;

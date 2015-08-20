@@ -1,6 +1,6 @@
-package ga.Kolatra.ExtraCraft.Common.Block;
+package ga.kolatra.extracraft.common.block;
 
-import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
+import ga.kolatra.extracraft.common.tile.TileSolarRF;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;

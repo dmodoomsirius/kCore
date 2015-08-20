@@ -1,8 +1,8 @@
-package ga.Kolatra.ExtraCraft.Common.Block;
+package ga.kolatra.extracraft.common.block;
 
-import ga.Kolatra.ExtraCraft.Common.TileEntity.TileSolarRF;
-import ga.Kolatra.kCore.Common.Block.BlockBase;
-import ga.Kolatra.kCore.KCore;
+import ga.kolatra.extracraft.common.tile.TileSolarRF;
+import ga.kolatra.kcore.common.block.BlockBase;
+import ga.kolatra.kcore.KCore;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

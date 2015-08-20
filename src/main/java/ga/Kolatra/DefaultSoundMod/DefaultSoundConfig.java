@@ -1,4 +1,4 @@
-package ga.Kolatra.DefaultSoundMod;
+package ga.kolatra.defaultsoundmod;
 
 import java.io.File;
 

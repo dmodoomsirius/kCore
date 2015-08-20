@@ -1,4 +1,4 @@
-package ga.Kolatra.kCore.Testing;
+package ga.kolatra.kcore.testing;
 
 import junit.framework.Assert;
 import junit.framework.Test;

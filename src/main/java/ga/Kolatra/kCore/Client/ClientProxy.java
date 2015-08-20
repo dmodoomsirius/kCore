@@ -1,6 +1,6 @@
-package ga.Kolatra.kCore.Client;
+package ga.kolatra.kcore.Client;
 
-import ga.Kolatra.kCore.Common.CommonProxy;
+import ga.kolatra.kcore.common.CommonProxy;
 
 public class ClientProxy extends CommonProxy
 {
