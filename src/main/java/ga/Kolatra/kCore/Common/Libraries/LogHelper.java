@@ -1,6 +1,6 @@
-package ga.kolatra.kcore.common.libraries;
+package ga.Kolatra.kCore.Common.Libraries;
 
-import ga.kolatra.kcore.common.config.KCoreConfig;
+import ga.Kolatra.kCore.Common.Config.KCoreConfig;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

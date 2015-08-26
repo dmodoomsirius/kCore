@@ -1,6 +1,8 @@
-package ga.kolatra.extracraft.common.block;
+package ga.Kolatra.ExtraCraft.Common.Block;
 
-import ga.kolatra.kcore.KCore;
+import ga.Kolatra.kCore.KCore;
+
+import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -35,5 +37,11 @@ public class BlockGlassPressurePlate extends BlockPressurePlate
     public void registerBlockIcons(IIconRegister register)
     {
         this.blockIcon = register.registerIcon(KCore.EXINDEX + "glass_pressure");
+    }
+
+    @Override
+    public int quantityDropped(Random random)
+    {
+        return 0;
     }
 }

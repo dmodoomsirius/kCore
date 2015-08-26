@@ -1,7 +1,7 @@
-package ga.kolatra.kcore.testing;
+package ga.Kolatra.kCore.Testing;
 
 import com.google.common.io.Files;
-import ga.kolatra.kcore.common.libraries.ReflectionUtility;
+import ga.Kolatra.kCore.Common.Libraries.ReflectionUtility;
 import org.junit.Test;
 import org.junit.runner.Description;
 import org.junit.runner.Result;

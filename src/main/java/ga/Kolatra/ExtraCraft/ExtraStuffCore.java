@@ -1,8 +1,8 @@
-package ga.kolatra.extracraft;
+package ga.Kolatra.ExtraCraft;
 
-import ga.kolatra.extracraft.common.block.ModBlocks;
-import ga.kolatra.extracraft.common.item.ModItems;
-import ga.kolatra.kcore.KCoreMod;
+import ga.Kolatra.ExtraCraft.Common.Block.ModBlocks;
+import ga.Kolatra.ExtraCraft.Common.Item.ModItems;
+import ga.Kolatra.kCore.KCoreMod;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;

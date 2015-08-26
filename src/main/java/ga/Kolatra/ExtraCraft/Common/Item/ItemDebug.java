@@ -1,6 +1,6 @@
-package ga.kolatra.extracraft.common.item;
+package ga.Kolatra.ExtraCraft.Common.Item;
 
-import ga.kolatra.kcore.common.item.ItemBase;
+import ga.Kolatra.kCore.Common.Item.ItemBase;
 
 public class ItemDebug extends ItemBase
 {

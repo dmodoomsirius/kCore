@@ -1,6 +1,6 @@
-package ga.kolatra.kcore.common.libraries;
+package ga.Kolatra.kCore.Common.Libraries;
 
-import ga.kolatra.kcore.KCore;
+import ga.Kolatra.kCore.KCore;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;

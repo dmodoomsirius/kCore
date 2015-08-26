@@ -1,14 +1,15 @@
-package ga.kolatra.kcore;
+package ga.Kolatra.kCore;
 
-import ga.kolatra.kcore.client.gui.GUIProxy;
-import ga.kolatra.kcore.common.command.CommandDebug;
-import ga.kolatra.kcore.common.command.CommandTrash;
-import ga.kolatra.kcore.common.config.KCoreConfig;
-import ga.kolatra.kcore.common.events.MainEvents;
-import ga.kolatra.kcore.common.events.PlayerEvents;
-import ga.kolatra.kcore.common.item.CreativeTab;
-import ga.kolatra.kcore.common.libraries.LogHelper;
-import ga.kolatra.kcore.common.libraries.Reference;
+import ga.Kolatra.kCore.Client.GUI.GUIProxy;
+import ga.Kolatra.kCore.Common.Command.CommandDebug;
+import ga.Kolatra.kCore.Common.Command.CommandTrash;
+import ga.Kolatra.kCore.Common.Compatibility.ModCompat;
+import ga.Kolatra.kCore.Common.Config.KCoreConfig;
+import ga.Kolatra.kCore.Common.Events.MainEvents;
+import ga.Kolatra.kCore.Common.Events.PlayerEvents;
+import ga.Kolatra.kCore.Common.Item.CreativeTab;
+import ga.Kolatra.kCore.Common.Libraries.LogHelper;
+import ga.Kolatra.kCore.Common.Libraries.Reference;
 
 import java.io.File;
 import java.util.UUID;
@@ -119,7 +120,18 @@ public class KCore extends KCoreMod
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-
+        if (ModCompat.VE.isLoaded())
+        {
+            LogHelper.info("VoltzEngine has been detected in this environment.");
+        }
+        if (ModCompat.DRAGON_API.isLoaded())
+        {
+            LogHelper.info("DragonAPI has been detected in this environment.");
+        }
+        if (ModCompat.PROJECTE.isLoaded())
+        {
+            LogHelper.info("Project E has been detected in this environment.");
+        }
     }
 
     @EventHandler

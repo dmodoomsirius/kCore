@@ -1,21 +1,22 @@
-package ga.kolatra.extracraft.client.gui;
+package ga.Kolatra.ExtraCraft.Client.GUI;
 
-import ga.kolatra.extracraft.common.tile.TileSolarRF;
-import ga.kolatra.extracraft.common.container.ContainerSolarRF;
-import ga.kolatra.kcore.common.libraries.Reference;
+import ga.Kolatra.ExtraCraft.Common.Tile.TileSolarRF;
+import ga.Kolatra.ExtraCraft.Common.Container.ContainerSolarRF;
+import ga.Kolatra.kCore.Common.Libraries.Reference;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class GUISolarRF extends GuiContainer
 {
-    private static TileSolarRF te;
-    private static InventoryPlayer player;
+    protected TileSolarRF te = new TileSolarRF();
+    protected InventoryPlayer player;
 
-    static Container container = new ContainerSolarRF(player, te);
+    Container container = new ContainerSolarRF(player, te);
 
     public static final ResourceLocation texture = new ResourceLocation(Reference.PREFIX + Reference.GUI_DIRECTORY + "solarrf.png");
 
@@ -39,7 +40,6 @@ public class GUISolarRF extends GuiContainer
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
         fontRendererObj.drawString("Solar Panel", 8, 6, 4210752);
-        fontRendererObj.drawString("Stored energy: " + TileSolarRF.energyStored + " RF", 8, 36, 4210752);
-        fontRendererObj.drawString("Machine operating: " + TileSolarRF.canOperate(), 8, 66, 4210752);
+        fontRendererObj.drawString("Stored energy: " + te.getEnergyStored(null) + " RF", 8, 36, 4210752);
     }
 }

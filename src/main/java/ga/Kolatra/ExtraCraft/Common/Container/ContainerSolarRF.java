@@ -1,6 +1,6 @@
-package ga.kolatra.extracraft.common.container;
+package ga.Kolatra.ExtraCraft.Common.Container;
 
-import ga.kolatra.extracraft.common.tile.TileSolarRF;
+import ga.Kolatra.ExtraCraft.Common.Tile.TileSolarRF;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

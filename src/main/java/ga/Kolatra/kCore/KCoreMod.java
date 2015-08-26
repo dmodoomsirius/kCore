@@ -1,4 +1,4 @@
-package ga.kolatra.kcore;
+package ga.Kolatra.kCore;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;

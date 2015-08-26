@@ -1,6 +1,6 @@
-package ga.kolatra.miningspeedfix;
+package ga.Kolatra.MiningSpeedFix;
 
-import ga.kolatra.kcore.KCoreMod;
+import ga.Kolatra.kCore.KCoreMod;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;

@@ -1,6 +1,6 @@
-package ga.kolatra.kcore.common.config;
+package ga.Kolatra.kCore.Common.Config;
 
-import ga.kolatra.kcore.common.libraries.LogHelper;
+import ga.Kolatra.kCore.Common.Libraries.LogHelper;
 
 import java.io.File;
 
@@ -9,6 +9,7 @@ import net.minecraftforge.common.config.Configuration;
 public class KCoreConfig
 {
     public static boolean logDebug;
+    public static int rfPerEMC;
 
     public static void init(File configFile)
     {

@@ -1,7 +1,7 @@
-package ga.kolatra.extracraft.common.item;
+package ga.Kolatra.ExtraCraft.Common.Item;
 
-import ga.kolatra.extracraft.ExtraStuffCore;
-import ga.kolatra.kcore.common.item.ItemBase;
+import ga.Kolatra.ExtraCraft.ExtraStuffCore;
+import ga.Kolatra.kCore.Common.Item.ItemBase;
 
 public class ItemSwing extends ItemBase
 {

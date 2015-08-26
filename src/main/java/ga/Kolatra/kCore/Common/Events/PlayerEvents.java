@@ -1,8 +1,8 @@
-package ga.kolatra.kcore.common.events;
+package ga.Kolatra.kCore.Common.Events;
 
-import ga.kolatra.kcore.common.libraries.ChatHelper;
-import ga.kolatra.kcore.common.libraries.PlayerChecks;
-import ga.kolatra.kcore.KCore;
+import ga.Kolatra.kCore.Common.Libraries.ChatHelper;
+import ga.Kolatra.kCore.Common.Libraries.PlayerChecks;
+import ga.Kolatra.kCore.KCore;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -24,6 +24,8 @@ public class PlayerEvents
         sb.append(EnumChatFormatting.AQUA.toString() + "developer of:\n");
         sb.append(EnumChatFormatting.WHITE.toString() + "\n");
         sb.append(EnumChatFormatting.GOLD.toString() + "kCore ");
+        sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)\n");
+        sb.append(EnumChatFormatting.YELLOW.toString() + "ExtraCraft ");
         sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)\n");
         sb.append(EnumChatFormatting.LIGHT_PURPLE.toString() + "MiningFixCore ");
         if (Loader.isModLoaded("MiningSpeedFix"))
@@ -49,7 +51,9 @@ public class PlayerEvents
 
         if (KCore.isDeobf())
         {
+            ChatComponentText space = new ChatComponentText(EnumChatFormatting.WHITE + "\n");
             ChatComponentText deobfMsg = new ChatComponentText(EnumChatFormatting.GOLD + "kCore is running in a development environment!");
+            ChatHelper.sendChatComponentToAll(space);
             ChatHelper.sendChatComponentToAll(deobfMsg);
         }
     }

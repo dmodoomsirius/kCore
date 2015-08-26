@@ -1,6 +1,6 @@
-package ga.kolatra.kcore.common.block;
+package ga.Kolatra.kCore.Common.Block;
 
-import ga.kolatra.kcore.KCore;
+import ga.Kolatra.kCore.KCore;
 
 import java.util.Random;
 

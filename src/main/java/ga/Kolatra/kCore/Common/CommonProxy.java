@@ -1,7 +1,7 @@
-package ga.kolatra.kcore.common;
+package ga.Kolatra.kCore.Common;
 
-import ga.kolatra.kcore.client.gui.GUIProxy;
-import ga.kolatra.kcore.KCore;
+import ga.Kolatra.kCore.Client.GUI.GUIProxy;
+import ga.Kolatra.kCore.KCore;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
 

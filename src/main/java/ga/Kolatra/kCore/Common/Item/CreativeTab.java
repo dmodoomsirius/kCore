@@ -1,6 +1,6 @@
-package ga.kolatra.kcore.common.item;
+package ga.Kolatra.kCore.Common.Item;
 
-import ga.kolatra.kcore.common.libraries.Reference;
+import ga.Kolatra.kCore.Common.Libraries.Reference;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

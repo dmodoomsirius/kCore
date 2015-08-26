@@ -1,11 +1,12 @@
-package ga.kolatra.kcore.common.compatibility;
+package ga.Kolatra.kCore.Common.Compatibility;
 
 import cpw.mods.fml.common.Loader;
 
 public enum ModCompat
 {
     VE("VoltzEngine"),
-    DRAGON_API("DragonAPI");
+    DRAGON_API("DragonAPI"),
+    PROJECTE("projecte");
 
     public final String mod_id;
 
