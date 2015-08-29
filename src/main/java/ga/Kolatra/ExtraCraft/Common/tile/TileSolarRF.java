@@ -151,7 +151,7 @@ public class TileSolarRF extends TileBase implements IEnergyProvider, IEnergyRec
     @Override
     public int getEnergyStored(ForgeDirection from)
     {
-        return this.energyStorage.getEnergyStored();
+        return energyStorage.getEnergyStored();
     }
 
     @Override
