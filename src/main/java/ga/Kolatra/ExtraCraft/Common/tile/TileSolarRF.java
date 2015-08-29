@@ -4,24 +4,25 @@ import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyHandler;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
+import ga.Kolatra.kCore.Common.Interfaces.BlockInterfaces;
 import ga.Kolatra.kCore.Common.Tile.TileBase;
 
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.biome.BiomeGenDesert;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileSolarRF extends TileBase implements IEnergyProvider, IEnergyReceiver
+public class TileSolarRF extends TileBase implements IEnergyProvider, IEnergyReceiver, BlockInterfaces.IBlockOverlayText
 {
     // Variables
     public static boolean isUnderSun;
     public static int energyStored;
     public int maxExtract = 1000;
-    public int maxPower = 100000;
-    public int generationRate = 10;
+    public int maxPower = 1000000;
+    public int generationRate = 1000;
     public EnergyStorage energyStorage = new EnergyStorage(maxPower);
 
     public TileSolarRF()
@@ -38,24 +39,17 @@ public class TileSolarRF extends TileBase implements IEnergyProvider, IEnergyRec
             return;
         }
 
-        if (worldObj.isDaytime() && worldObj.canBlockSeeTheSky(xCoord, yCoord + 1, zCoord))
-        {
-            isUnderSun = true;
-        }
-        else
-        {
-            isUnderSun = false;
-        }
+        isUnderSun = worldObj.isDaytime() && worldObj.canBlockSeeTheSky(xCoord, yCoord + 1, zCoord);
 
         if (canOperate())
         {
             energyStorage.setEnergyStored(energyStorage.getEnergyStored() + generationRate);
             this.markDirty();
             worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-            //System.out.println(this.energyStorage.getEnergyStored());
         }
 
-        if ((energyStorage.getEnergyStored() > 0)) {
+        if (energyStorage.getEnergyStored() > 0)
+        {
             for (int i = 0; i < 6; i++){
 
                 int targetX = xCoord + ForgeDirection.getOrientation(i).offsetX;
@@ -63,7 +57,8 @@ public class TileSolarRF extends TileBase implements IEnergyProvider, IEnergyRec
                 int targetZ = zCoord + ForgeDirection.getOrientation(i).offsetZ;
 
                 TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
-                if (tile instanceof IEnergyHandler) {
+                if (tile instanceof IEnergyHandler)
+                {
 
                     int maxExtract = this.maxExtract;
                     int maxAvailable = energyStorage.extractEnergy(maxExtract, true);
@@ -158,5 +153,14 @@ public class TileSolarRF extends TileBase implements IEnergyProvider, IEnergyRec
     public int getMaxEnergyStored(ForgeDirection from)
     {
         return energyStorage.getMaxEnergyStored();
+    }
+
+    @Override
+    public String[] getOverlayText(MovingObjectPosition mop)
+    {
+        return new String[]
+                {
+                        StatCollector.translateToLocal(EnumChatFormatting.GREEN + "Stored power: " + energyStorage.getEnergyStored() + " RF")
+                };
     }
 }

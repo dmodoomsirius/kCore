@@ -5,6 +5,7 @@ import ga.Kolatra.kCore.Common.Command.CommandDebug;
 import ga.Kolatra.kCore.Common.Command.CommandTrash;
 import ga.Kolatra.kCore.Common.Compatibility.ModList;
 import ga.Kolatra.kCore.Common.Config.KCoreConfig;
+import ga.Kolatra.kCore.Common.Events.ClientEventHandler;
 import ga.Kolatra.kCore.Common.Events.MainEvents;
 import ga.Kolatra.kCore.Common.Events.PlayerEvents;
 import ga.Kolatra.kCore.Common.Item.CreativeTab;
@@ -105,8 +106,10 @@ public class KCore extends KCoreMod
 
         PlayerEvents pl = new PlayerEvents();
         MainEvents mainEvents = new MainEvents();
+        ClientEventHandler client = new ClientEventHandler();
         MinecraftForge.EVENT_BUS.register(mainEvents);
         MinecraftForge.EVENT_BUS.register(pl);
+        MinecraftForge.EVENT_BUS.register(client);
         FMLCommonHandler.instance().bus().register(pl);
         FMLCommonHandler.instance().bus().register(mainEvents);
     }
