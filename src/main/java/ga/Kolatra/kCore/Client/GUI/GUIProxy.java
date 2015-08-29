@@ -18,11 +18,9 @@ public class GUIProxy implements IGuiHandler
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
     {
-        TileEntity tileEntity = world.getTileEntity(x, y, z);
-        if (ID == Reference.GUI_SOLAR_RF && tileEntity instanceof TileSolarRF)
+        if (ID == Reference.GUI_SOLAR_RF && world.getTileEntity(x, y, z) instanceof TileSolarRF)
         {
-            TileSolarRF tileSolarRF = new TileSolarRF();
-            return new ContainerSolarRF(player.inventory, tileSolarRF);
+            return new ContainerSolarRF(player.inventory, (TileSolarRF) world.getTileEntity(x, y, z));
         }
         return null;
     }
@@ -30,12 +28,9 @@ public class GUIProxy implements IGuiHandler
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
     {
-        TileEntity tileEntity = world.getTileEntity(x, y, z);
-        TileSolarRF solarTile = new TileSolarRF();
-        Container solarCon = new ContainerSolarRF(player.inventory, solarTile);
-        if (ID == Reference.GUI_SOLAR_RF && tileEntity instanceof TileSolarRF)
+        if (ID == Reference.GUI_SOLAR_RF && world.getTileEntity(x, y, z) instanceof TileSolarRF)
         {
-            return new GUISolarRF(solarCon);
+            return new GUISolarRF(player.inventory, (TileSolarRF) world.getTileEntity(x, y, z));
         }
         return null;
     }

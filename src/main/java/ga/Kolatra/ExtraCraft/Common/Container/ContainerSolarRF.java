@@ -11,9 +11,9 @@ public class ContainerSolarRF extends Container
 {
     TileSolarRF tile;
 
-    public ContainerSolarRF(InventoryPlayer player, TileSolarRF te)
+    public ContainerSolarRF(InventoryPlayer player, TileSolarRF tile)
     {
-        tile = te;
+        this.tile = tile;
 
         /*
         // Player inventory

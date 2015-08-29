@@ -4,23 +4,25 @@ import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyHandler;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
-import cofh.api.energy.TileEnergyHandler;
+import ga.Kolatra.kCore.Common.Tile.TileBase;
 
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.biome.BiomeGenDesert;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileSolarRF extends TileEntity implements IEnergyProvider, IEnergyReceiver
+public class TileSolarRF extends TileBase implements IEnergyProvider, IEnergyReceiver
 {
     // Variables
     public static boolean isUnderSun;
     public static int energyStored;
-    public int maxExtract = 100;
-    public int maxPower = 1000000;
+    public int maxExtract = 1000;
+    public int maxPower = 100000;
     public int generationRate = 10;
-    protected TileEnergyHandler energy = new TileEnergyHandler();
-    protected EnergyStorage storage = new EnergyStorage(maxPower, 0, maxExtract);
+    public EnergyStorage energyStorage = new EnergyStorage(maxPower);
 
     public TileSolarRF()
     {
@@ -29,9 +31,12 @@ public class TileSolarRF extends TileEntity implements IEnergyProvider, IEnergyR
     @Override
     public void updateEntity()
     {
-        if (worldObj.isRemote) return;
-
         super.updateEntity();
+
+        if (worldObj.isRemote)
+        {
+            return;
+        }
 
         if (worldObj.isDaytime() && worldObj.canBlockSeeTheSky(xCoord, yCoord + 1, zCoord))
         {
@@ -44,10 +49,13 @@ public class TileSolarRF extends TileEntity implements IEnergyProvider, IEnergyR
 
         if (canOperate())
         {
-            storage.setEnergyStored(energyStored + getGeneration());
+            energyStorage.setEnergyStored(energyStorage.getEnergyStored() + generationRate);
+            this.markDirty();
+            worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+            //System.out.println(this.energyStorage.getEnergyStored());
         }
 
-        if ((storage.getEnergyStored() > 0)) {
+        if ((energyStorage.getEnergyStored() > 0)) {
             for (int i = 0; i < 6; i++){
 
                 int targetX = xCoord + ForgeDirection.getOrientation(i).offsetX;
@@ -58,10 +66,12 @@ public class TileSolarRF extends TileEntity implements IEnergyProvider, IEnergyR
                 if (tile instanceof IEnergyHandler) {
 
                     int maxExtract = this.maxExtract;
-                    int maxAvailable = storage.extractEnergy(maxExtract, true);
+                    int maxAvailable = energyStorage.extractEnergy(maxExtract, true);
                     int energyTransferred = ((IEnergyHandler) tile).receiveEnergy(ForgeDirection.getOrientation(i).getOpposite(), maxAvailable, false);
 
-                    storage.extractEnergy(energyTransferred, false);
+                    energyStorage.extractEnergy(energyTransferred, false);
+                    this.markDirty();
+                    worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
                 }
             }
         }
@@ -109,14 +119,14 @@ public class TileSolarRF extends TileEntity implements IEnergyProvider, IEnergyR
     public void readFromNBT(NBTTagCompound nbt)
     {
         super.readFromNBT(nbt);
-        energy.readFromNBT(nbt);
+        energyStorage.readFromNBT(nbt);
     }
 
     @Override
     public void writeToNBT(NBTTagCompound nbt)
     {
         super.writeToNBT(nbt);
-        energy.writeToNBT(nbt);
+        energyStorage.writeToNBT(nbt);
     }
 
     /* IEnergyHandler */
@@ -129,24 +139,24 @@ public class TileSolarRF extends TileEntity implements IEnergyProvider, IEnergyR
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate)
     {
-        return storage.receiveEnergy(maxReceive, simulate);
+        return energyStorage.receiveEnergy(maxReceive, simulate);
     }
 
     @Override
     public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
     {
-        return storage.extractEnergy(maxExtract, simulate);
+        return energyStorage.extractEnergy(maxExtract, simulate);
     }
 
     @Override
     public int getEnergyStored(ForgeDirection from)
     {
-        return storage.getEnergyStored();
+        return this.energyStorage.getEnergyStored();
     }
 
     @Override
     public int getMaxEnergyStored(ForgeDirection from)
     {
-        return storage.getMaxEnergyStored();
+        return energyStorage.getMaxEnergyStored();
     }
 }

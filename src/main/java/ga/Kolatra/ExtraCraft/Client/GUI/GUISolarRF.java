@@ -5,7 +5,10 @@ import ga.Kolatra.ExtraCraft.Common.Container.ContainerSolarRF;
 import ga.Kolatra.kCore.Common.Libraries.Reference;
 import org.lwjgl.opengl.GL11;
 
+import java.util.ArrayList;
+
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
@@ -13,18 +16,21 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class GUISolarRF extends GuiContainer
 {
-    protected TileSolarRF te = new TileSolarRF();
-    protected InventoryPlayer player;
-
-    Container container = new ContainerSolarRF(player, te);
+    TileSolarRF tile = new TileSolarRF();
 
     public static final ResourceLocation texture = new ResourceLocation(Reference.PREFIX + Reference.GUI_DIRECTORY + "solarrf.png");
 
-    public GUISolarRF(Container container)
+    public GUISolarRF(InventoryPlayer inventoryPlayer, TileSolarRF tile)
     {
-        super(container);
+        super(new ContainerSolarRF(inventoryPlayer, tile));
+        this.tile = tile;
+    }
 
-        this.container = container;
+    @Override
+    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
+    {
+        fontRendererObj.drawString("Solar Panel", 8, 6, 4210752);
+        fontRendererObj.drawString(tile.energyStorage.getEnergyStored() + "/" + tile.energyStorage.getMaxEnergyStored() + " RF", 8, 36, 4210752);
     }
 
     @Override
@@ -36,12 +42,5 @@ public class GUISolarRF extends GuiContainer
         int x = (width - xSize) / 2;
         int y = (height - ySize) / 2;
         this.drawTexturedModalRect(x, y, 256, 256, xSize, ySize);
-    }
-
-    @Override
-    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
-    {
-        fontRendererObj.drawString("Solar Panel", 8, 6, 4210752);
-        fontRendererObj.drawString("Stored energy: " + te.getEnergyStored(null) + " RF", 8, 36, 4210752);
     }
 }
