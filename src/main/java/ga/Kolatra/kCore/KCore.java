@@ -3,7 +3,7 @@ package ga.Kolatra.kCore;
 import ga.Kolatra.kCore.Client.GUI.GUIProxy;
 import ga.Kolatra.kCore.Common.Command.CommandDebug;
 import ga.Kolatra.kCore.Common.Command.CommandTrash;
-import ga.Kolatra.kCore.Common.Compatibility.ModCompat;
+import ga.Kolatra.kCore.Common.Compatibility.ModList;
 import ga.Kolatra.kCore.Common.Config.KCoreConfig;
 import ga.Kolatra.kCore.Common.Events.MainEvents;
 import ga.Kolatra.kCore.Common.Events.PlayerEvents;
@@ -26,6 +26,8 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiIngameMenu;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.classloading.FMLForgePlugin;
@@ -120,17 +122,21 @@ public class KCore extends KCoreMod
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        if (ModCompat.VE.isLoaded())
+        if (ModList.VE.isLoaded())
         {
             LogHelper.info("VoltzEngine has been detected in this environment.");
         }
-        if (ModCompat.DRAGON_API.isLoaded())
+        if (ModList.DRAGON_API.isLoaded())
         {
             LogHelper.info("DragonAPI has been detected in this environment.");
         }
-        if (ModCompat.PROJECTE.isLoaded())
+        if (ModList.PROJECTE.isLoaded())
         {
             LogHelper.info("Project E has been detected in this environment.");
+        }
+        if (ModList.SPIRITUS.isLoaded())
+        {
+            LogHelper.info("Spiritus Malus has been detected in this environment.");
         }
     }
 
@@ -152,6 +158,7 @@ public class KCore extends KCoreMod
     }
 
     @SubscribeEvent
+    @SideOnly(Side.CLIENT) // Fuck you for breaking servers...
     public void onGuiEvent(GuiOpenEvent event)
     {
         if (event.gui instanceof GuiIngameModOptions)

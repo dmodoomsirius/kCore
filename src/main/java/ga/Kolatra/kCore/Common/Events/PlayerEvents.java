@@ -1,10 +1,10 @@
 package ga.Kolatra.kCore.Common.Events;
 
+import ga.Kolatra.kCore.Common.Compatibility.ModList;
 import ga.Kolatra.kCore.Common.Libraries.ChatHelper;
 import ga.Kolatra.kCore.Common.Libraries.PlayerChecks;
 import ga.Kolatra.kCore.KCore;
 
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
@@ -27,8 +27,17 @@ public class PlayerEvents
         sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)\n");
         sb.append(EnumChatFormatting.YELLOW.toString() + "ExtraCraft ");
         sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)\n");
+        sb.append(EnumChatFormatting.DARK_RED.toString() + "Spiritus Malus ");
+        if (ModList.SPIRITUS.isLoaded())
+        {
+            sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)");
+        }
+        else
+        {
+            sb.append(EnumChatFormatting.RED.toString() + "(Not Installed)\n");
+        }
         sb.append(EnumChatFormatting.LIGHT_PURPLE.toString() + "MiningFixCore ");
-        if (Loader.isModLoaded("MiningSpeedFix"))
+        if (ModList.MININGFIX.isLoaded())
         {
             sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)\n");
         }
@@ -51,9 +60,7 @@ public class PlayerEvents
 
         if (KCore.isDeobf())
         {
-            ChatComponentText space = new ChatComponentText(EnumChatFormatting.WHITE + "\n");
             ChatComponentText deobfMsg = new ChatComponentText(EnumChatFormatting.GOLD + "kCore is running in a development environment!");
-            ChatHelper.sendChatComponentToAll(space);
             ChatHelper.sendChatComponentToAll(deobfMsg);
         }
     }

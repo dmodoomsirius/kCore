@@ -32,6 +32,6 @@ public class PlayerChecks
 
     public static boolean isKolatra(EntityPlayer ep)
     {
-        return ep.getUniqueID().equals(KCore.KolatraUUID);
+        return ep.getUniqueID().equals(KCore.KolatraUUID) || ep.getCommandSenderName().equals("Kolatra");
     }
 }

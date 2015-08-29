@@ -280,3 +280,5 @@ settings.jar
 src/main/resources/assets/
 build.bat
 src/api/java/*
+run/
+run2/

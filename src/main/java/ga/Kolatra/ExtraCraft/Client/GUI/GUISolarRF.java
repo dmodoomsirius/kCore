@@ -23,6 +23,8 @@ public class GUISolarRF extends GuiContainer
     public GUISolarRF(Container container)
     {
         super(container);
+
+        this.container = container;
     }
 
     @Override

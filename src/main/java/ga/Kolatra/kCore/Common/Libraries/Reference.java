@@ -4,9 +4,9 @@ public class Reference
 {
     // A constants and references class. Will expand as the mod is developed.
 
-    private static int modGUIIndex = 0;
-
-    public static final int GUI_SOLAR_RF = modGUIIndex++;
+    // GUIs
+    private static int MOD_GUI_INDEX = 0;
+    public static final int GUI_SOLAR_RF = MOD_GUI_INDEX++;
 
     public static final String MODID = "kCore";
     public static final String MODNAME = "kCore";
