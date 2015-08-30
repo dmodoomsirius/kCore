@@ -7,6 +7,7 @@ public class ItemDebug extends ItemBase
     public ItemDebug()
     {
         super();
+        this.setUnlocalizedName("debug");
         this.maxStackSize = 1;
     }
 }

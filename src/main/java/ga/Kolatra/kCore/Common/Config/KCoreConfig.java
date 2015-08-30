@@ -1,37 +1,44 @@
 package ga.Kolatra.kCore.Common.Config;
 
-import ga.Kolatra.kCore.Common.Libraries.LogHelper;
+import ga.Kolatra.kCore.Common.Libraries.Reference;
 
 import java.io.File;
 
+import cpw.mods.fml.client.event.ConfigChangedEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;
 
 public class KCoreConfig
 {
+    public static Configuration configuration;
+
     public static boolean logDebug;
-    public static int rfPerEMC;
 
-    public static void init(File configFile)
+    public static void init(File file)
     {
-        Configuration configuration = new Configuration(configFile);
-
-        try
+        if (configuration == null)
         {
-            configuration.load();
-
-            logDebug = configuration.getBoolean("debugLogging", "misc", true, "Enable debug logging.");
+            configuration = new Configuration(file);
+            loadConfiguration();
         }
-        catch (Exception e)
+    }
+
+    private static void loadConfiguration()
+    {
+        logDebug = configuration.getBoolean("debugLogging", "misc", true, "Enable debug logging.");
+
+        if (configuration.hasChanged())
         {
-            LogHelper.fatal("Caught exception while loading Config!");
-            e.printStackTrace();
+            configuration.save();
         }
-        finally
+    }
+
+    @SubscribeEvent
+    public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event)
+    {
+        if (event.modID.equalsIgnoreCase(Reference.MODID))
         {
-            if (configuration.hasChanged())
-            {
-                configuration.save();
-            }
+            loadConfiguration();
         }
     }
 }

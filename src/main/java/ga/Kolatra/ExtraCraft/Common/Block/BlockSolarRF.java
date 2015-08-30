@@ -2,16 +2,15 @@ package ga.Kolatra.ExtraCraft.Common.Block;
 
 import ga.Kolatra.ExtraCraft.Common.Tile.TileSolarRF;
 import ga.Kolatra.kCore.Common.Block.BlockBase;
-import ga.Kolatra.kCore.Common.Libraries.ChatHelper;
 import ga.Kolatra.kCore.Common.Libraries.Reference;
-import ga.Kolatra.kCore.KCore;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -55,12 +54,6 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
                 }
             }
         }
-
-        if (!world.isRemote)
-        {
-            TileSolarRF.enabled = !TileSolarRF.enabled;
-        }
-
         return true;
     }
 
@@ -70,5 +63,16 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     {
         this.blockIcon = register.registerIcon(Reference.EXINDEX + "solar_rf");
         this.textureTop = register.registerIcon(Reference.EXINDEX + "solar_rf_top");
+    }
+
+    @Override
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase elb, ItemStack stack)
+    {
+        super.onBlockPlacedBy(world, x, y, z, elb, stack);
+        TileSolarRF tileEntity = (TileSolarRF) world.getTileEntity(x, y, z);
+        if (stack.hasTagCompound())
+        {
+            tileEntity.readFromNBT(stack.getTagCompound());
+        }
     }
 }

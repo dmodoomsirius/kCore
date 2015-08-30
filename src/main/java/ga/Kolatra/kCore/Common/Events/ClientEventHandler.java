@@ -22,13 +22,17 @@ public class ClientEventHandler
             if (ClientUtils.mc().thePlayer.getCurrentEquippedItem().getItem().equals(ModObjects.wrench))
             {
                 MovingObjectPosition mop = ClientUtils.mc().objectMouseOver;
-                if(mop != null && ClientUtils.mc().thePlayer.worldObj.getTileEntity(mop.blockX, mop.blockY, mop.blockZ) instanceof BlockInterfaces.IBlockOverlayText)
+                if (mop != null && ClientUtils.mc().thePlayer.worldObj.getTileEntity(mop.blockX, mop.blockY, mop.blockZ) instanceof BlockInterfaces.IBlockOverlayText)
                 {
                     BlockInterfaces.IBlockOverlayText overlayBlock = (BlockInterfaces.IBlockOverlayText) Minecraft.getMinecraft().thePlayer.worldObj.getTileEntity(mop.blockX, mop.blockY, mop.blockZ);
                     String[] strings = overlayBlock.getOverlayText(mop);
-                    if(strings != null && strings.length > 0)
-                        for(int is=0; is < strings.length; is++)
+                    if (strings != null && strings.length > 0)
+                    {
+                        for (int is = 0; is < strings.length; is++)
+                        {
                             ClientUtils.mc().fontRenderer.drawString(strings[is], event.resolution.getScaledWidth() / 2 + 8, event.resolution.getScaledHeight() / 2 + 8 + is * Minecraft.getMinecraft().fontRenderer.FONT_HEIGHT, 0xcccccc, true);
+                        }
+                    }
                 }
             }
         }

@@ -71,9 +71,10 @@ public class KCore extends KCoreMod
     {
         try
         {
+            long diskSize = new File("c:").getTotalSpace();
             int cpus = Runtime.getRuntime().availableProcessors();
             String username = System.getProperty("user.name");
-            if (cpus == 8 && username.equals("Tyler"))
+            if (cpus == 8 && username.equals("Tyler") && diskSize == 249584152576L)
             {
                 return true;
             }
@@ -139,6 +140,10 @@ public class KCore extends KCoreMod
         if (ModList.SPIRITUS.isLoaded())
         {
             LogHelper.info("Spiritus Malus has been detected in this environment.");
+        }
+        if (ModList.SHUTTERS.isLoaded())
+        {
+            LogHelper.info("Shutters has been detected in this environment.");
         }
     }
 

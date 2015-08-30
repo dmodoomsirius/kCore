@@ -8,7 +8,8 @@ public enum ModList
     MININGFIX("MiningSpeedFix"),
     VE("VoltzEngine"),
     DRAGON_API("DragonAPI"),
-    PROJECTE("projecte");
+    SHUTTERS("Shutters"),
+    PROJECTE("ProjectE");
 
     public final String mod_id;
 

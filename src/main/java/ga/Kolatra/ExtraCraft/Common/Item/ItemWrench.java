@@ -1,29 +1,23 @@
 package ga.Kolatra.ExtraCraft.Common.Item;
 
-import ga.Kolatra.ExtraCraft.Common.Tile.TileSolarRF;
 import ga.Kolatra.kCore.Common.Item.ItemBase;
-import ga.Kolatra.kCore.Common.Libraries.ClientUtils;
+import ga.Kolatra.kCore.Common.Libraries.BlockMeta;
 import ga.Kolatra.kCore.Common.Libraries.Reference;
 import ga.Kolatra.kCore.Common.Tile.TileBase;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class ItemWrench extends ItemBase
 {
-    private Block block;
-    private int meta;
-
     public ItemWrench()
     {
         super();
@@ -51,17 +45,20 @@ public class ItemWrench extends ItemBase
             {
                 if (player.isSneaking())
                 {
-                    MovingObjectPosition mop = ClientUtils.mc().objectMouseOver;
-                    Block block = world.getBlock(mop.blockX, mop.blockY, mop.blockZ);
-                    TileEntity tile = world.getTileEntity(mop.blockX, mop.blockY, mop.blockZ);
-                    if(mop != null && ClientUtils.mc().thePlayer.worldObj.getTileEntity(mop.blockX, mop.blockY, mop.blockZ) instanceof TileBase)
+                    TileEntity tile = world.getTileEntity(blockX, blockY, blockZ);
+                    BlockMeta blockMeta = new BlockMeta(world, blockX, blockY, blockZ);
+                    if (world.getTileEntity(blockX, blockY, blockZ) instanceof TileBase)
                     {
                         NBTTagCompound nbt = new NBTTagCompound();
                         tile.writeToNBT(nbt);
 
-                        world.removeTileEntity(mop.blockX, mop.blockY, mop.blockZ);
-                        world.setBlockToAir(mop.blockX, mop.blockY, mop.blockZ);
-                        block.dropBlockAsItem(world, mop.blockX, mop.blockY, mop.blockZ, world.getBlockMetadata(mop.blockX, mop.blockY, mop.blockZ), 0);
+                        ItemStack stack1 = blockMeta.toItemStack();
+
+                        stack1.setTagCompound(nbt);
+
+                        world.removeTileEntity(blockX, blockY, blockZ);
+                        world.setBlockToAir(blockX, blockY, blockZ);
+                        world.spawnEntityInWorld(new EntityItem(world, blockX, blockY, blockZ, stack1));
                     }
                 }
             }
