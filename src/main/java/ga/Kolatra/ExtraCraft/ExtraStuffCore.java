@@ -1,7 +1,6 @@
 package ga.Kolatra.ExtraCraft;
 
-import ga.Kolatra.ExtraCraft.Common.Block.ModBlocks;
-import ga.Kolatra.ExtraCraft.Common.Item.ModItems;
+import ga.Kolatra.ExtraCraft.Common.ModObjects;
 import ga.Kolatra.kCore.KCoreMod;
 
 import cpw.mods.fml.common.Mod;
@@ -28,8 +27,7 @@ public class ExtraStuffCore extends KCoreMod
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        ModBlocks.register();
-        ModItems.register();
+        ModObjects.registerObjects();
     }
 
     @Override

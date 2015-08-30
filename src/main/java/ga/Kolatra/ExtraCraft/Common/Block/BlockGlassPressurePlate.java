@@ -1,5 +1,6 @@
 package ga.Kolatra.ExtraCraft.Common.Block;
 
+import ga.Kolatra.kCore.Common.Libraries.Reference;
 import ga.Kolatra.kCore.KCore;
 
 import java.util.Random;
@@ -36,7 +37,7 @@ public class BlockGlassPressurePlate extends BlockPressurePlate
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register)
     {
-        this.blockIcon = register.registerIcon(KCore.EXINDEX + "glass_pressure");
+        this.blockIcon = register.registerIcon(Reference.EXINDEX + "glass_pressure");
     }
 
     @Override

@@ -17,8 +17,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class TileSolarRF extends TileBase implements IEnergyProvider, IEnergyReceiver, BlockInterfaces.IBlockOverlayText
 {
-    // Variables
     public static boolean isUnderSun;
+    public static boolean enabled;
     public static int energyStored;
     public int maxExtract = 1000;
     public int maxPower = 1000000;
@@ -41,32 +41,35 @@ public class TileSolarRF extends TileBase implements IEnergyProvider, IEnergyRec
 
         isUnderSun = worldObj.isDaytime() && worldObj.canBlockSeeTheSky(xCoord, yCoord + 1, zCoord);
 
-        if (canOperate())
+        if (enabled)
         {
-            energyStorage.setEnergyStored(energyStorage.getEnergyStored() + generationRate);
-            this.markDirty();
-            worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-        }
+            if (canOperate())
+            {
+                energyStorage.setEnergyStored(energyStorage.getEnergyStored() + generationRate);
+                this.markDirty();
+                worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+            }
 
-        if (energyStorage.getEnergyStored() > 0)
-        {
-            for (int i = 0; i < 6; i++){
+            if (energyStorage.getEnergyStored() > 0)
+            {
+                for (int i = 0; i < 6; i++){
 
-                int targetX = xCoord + ForgeDirection.getOrientation(i).offsetX;
-                int targetY = yCoord + ForgeDirection.getOrientation(i).offsetY;
-                int targetZ = zCoord + ForgeDirection.getOrientation(i).offsetZ;
+                    int targetX = xCoord + ForgeDirection.getOrientation(i).offsetX;
+                    int targetY = yCoord + ForgeDirection.getOrientation(i).offsetY;
+                    int targetZ = zCoord + ForgeDirection.getOrientation(i).offsetZ;
 
-                TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
-                if (tile instanceof IEnergyHandler)
-                {
+                    TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
+                    if (tile instanceof IEnergyHandler)
+                    {
 
-                    int maxExtract = this.maxExtract;
-                    int maxAvailable = energyStorage.extractEnergy(maxExtract, true);
-                    int energyTransferred = ((IEnergyHandler) tile).receiveEnergy(ForgeDirection.getOrientation(i).getOpposite(), maxAvailable, false);
+                        int maxExtract = this.maxExtract;
+                        int maxAvailable = energyStorage.extractEnergy(maxExtract, true);
+                        int energyTransferred = ((IEnergyHandler) tile).receiveEnergy(ForgeDirection.getOrientation(i).getOpposite(), maxAvailable, false);
 
-                    energyStorage.extractEnergy(energyTransferred, false);
-                    this.markDirty();
-                    worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+                        energyStorage.extractEnergy(energyTransferred, false);
+                        this.markDirty();
+                        worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+                    }
                 }
             }
         }
@@ -158,9 +161,21 @@ public class TileSolarRF extends TileBase implements IEnergyProvider, IEnergyRec
     @Override
     public String[] getOverlayText(MovingObjectPosition mop)
     {
-        return new String[]
-                {
-                        StatCollector.translateToLocal(EnumChatFormatting.GREEN + "Stored power: " + energyStorage.getEnergyStored() + " RF")
-                };
+        if (enabled)
+        {
+            return new String[]
+                    {
+                            StatCollector.translateToLocal(EnumChatFormatting.GOLD + "Stored power: " + energyStorage.getEnergyStored() + " RF"),
+                            StatCollector.translateToLocal(EnumChatFormatting.GREEN + "Enabled.")
+                    };
+        }
+        else
+        {
+            return new String[]
+                    {
+                            StatCollector.translateToLocal(EnumChatFormatting.GOLD + "Stored power: " + energyStorage.getEnergyStored() + " RF"),
+                            StatCollector.translateToLocal(EnumChatFormatting.RED + "Disabled.")
+                    };
+        }
     }
 }

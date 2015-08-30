@@ -2,6 +2,8 @@ package ga.Kolatra.ExtraCraft.Common.Block;
 
 import ga.Kolatra.ExtraCraft.Common.Tile.TileSolarRF;
 import ga.Kolatra.kCore.Common.Block.BlockBase;
+import ga.Kolatra.kCore.Common.Libraries.ChatHelper;
+import ga.Kolatra.kCore.Common.Libraries.Reference;
 import ga.Kolatra.kCore.KCore;
 
 import cpw.mods.fml.relauncher.Side;
@@ -20,7 +22,6 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
 
     public BlockSolarRF()
     {
-        this.setBlockTextureName("solar_rf");
         this.setBlockName("solar_rf");
     }
 
@@ -50,10 +51,16 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
             {
                 if (world.getTileEntity(x, y, z) instanceof TileSolarRF)
                 {
-                    player.openGui(KCore.INSTANCE, KCore.GUI_SOLAR_RF, world, x, y, z);
+                    //player.openGui(KCore.INSTANCE, KCore.GUI_SOLAR_RF, world, x, y, z);
                 }
             }
         }
+
+        if (!world.isRemote)
+        {
+            TileSolarRF.enabled = !TileSolarRF.enabled;
+        }
+
         return true;
     }
 
@@ -61,16 +68,7 @@ public class BlockSolarRF extends BlockBase implements ITileEntityProvider
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register)
     {
-        this.blockIcon = register.registerIcon(KCore.EXINDEX + "solar_rf");
-        this.textureTop = register.registerIcon(KCore.EXINDEX + "solar_rf_top");
-    }
-
-    @Override
-    public void breakBlock(World world, int x, int y, int z, Block blockBroken, int meta)
-    {
-        if (world.getTileEntity(x, y, z) instanceof TileSolarRF)
-        {
-            TileSolarRF.energyStored = 0;
-        }
+        this.blockIcon = register.registerIcon(Reference.EXINDEX + "solar_rf");
+        this.textureTop = register.registerIcon(Reference.EXINDEX + "solar_rf_top");
     }
 }

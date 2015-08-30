@@ -6,13 +6,9 @@ import net.minecraft.item.Item;
 
 public class ItemBase extends Item
 {
-
-    public String modid;
-
-    public ItemBase(String name)
+    public ItemBase()
     {
         super();
-        this.setUnlocalizedName(name);
         this.setCreativeTab(KCore.cTab);
     }
 }

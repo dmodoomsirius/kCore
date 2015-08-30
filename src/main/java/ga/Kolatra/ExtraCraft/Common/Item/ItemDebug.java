@@ -4,9 +4,9 @@ import ga.Kolatra.kCore.Common.Item.ItemBase;
 
 public class ItemDebug extends ItemBase
 {
-    public ItemDebug(String name)
+    public ItemDebug()
     {
-        super(name);
+        super();
         this.maxStackSize = 1;
     }
 }

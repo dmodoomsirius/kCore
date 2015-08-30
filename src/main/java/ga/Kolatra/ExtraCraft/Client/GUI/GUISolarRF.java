@@ -2,6 +2,7 @@ package ga.Kolatra.ExtraCraft.Client.GUI;
 
 import ga.Kolatra.ExtraCraft.Common.Tile.TileSolarRF;
 import ga.Kolatra.ExtraCraft.Common.Container.ContainerSolarRF;
+import ga.Kolatra.kCore.Common.Libraries.ClientUtils;
 import ga.Kolatra.kCore.Common.Libraries.Reference;
 import org.lwjgl.opengl.GL11;
 
@@ -29,8 +30,8 @@ public class GUISolarRF extends GuiContainer
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
-        fontRendererObj.drawString("Solar Panel", 8, 6, 4210752);
-        fontRendererObj.drawString(tile.energyStorage.getEnergyStored() + "/" + tile.energyStorage.getMaxEnergyStored() + " RF", 8, 36, 4210752);
+        ClientUtils.font().drawString("Solar Panel", 8, 6, 4210752);
+        ClientUtils.font().drawString(tile.energyStorage.getEnergyStored() + "/" + tile.energyStorage.getMaxEnergyStored() + " RF", 8, 36, 4210752);
     }
 
     @Override

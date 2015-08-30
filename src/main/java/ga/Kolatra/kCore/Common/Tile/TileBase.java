@@ -6,6 +6,9 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
+/**
+ * Base TileEntity class to ease creation of Tiles that send packets.
+ */
 public class TileBase extends TileEntity
 {
     @Override

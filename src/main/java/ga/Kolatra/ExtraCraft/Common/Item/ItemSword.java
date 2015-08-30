@@ -3,12 +3,12 @@ package ga.Kolatra.ExtraCraft.Common.Item;
 import ga.Kolatra.ExtraCraft.ExtraStuffCore;
 import ga.Kolatra.kCore.Common.Item.ItemBase;
 
-public class ItemSwing extends ItemBase
+public class ItemSword extends ItemBase
 {
 
-    public ItemSwing()
+    public ItemSword()
     {
-        super("item_swing"); // It's a sword I swear.
+        super();
         this.setTextureName(ExtraStuffCore.PREFIX + "item_swing");
     }
 }
