@@ -25,12 +25,6 @@ public class ItemWrench extends ItemBase
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister register)
-    {
-        this.itemIcon = register.registerIcon(Reference.EXINDEX + "wrench");
-    }
-
-    @SideOnly(Side.CLIENT)
     public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
     {
         return this.itemIcon;
@@ -64,5 +58,11 @@ public class ItemWrench extends ItemBase
             }
         }
         return false;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister register)
+    {
+        this.itemIcon = register.registerIcon(Reference.EXINDEX + "wrench");
     }
 }

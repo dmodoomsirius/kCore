@@ -9,7 +9,8 @@ public enum ModList
     VE("VoltzEngine"),
     DRAGON_API("DragonAPI"),
     SHUTTERS("Shutters"),
-    PROJECTE("ProjectE");
+    PROJECTE("ProjectE"),
+    ;
 
     public final String mod_id;
 

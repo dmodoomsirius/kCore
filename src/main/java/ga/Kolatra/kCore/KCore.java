@@ -165,7 +165,7 @@ public class KCore extends KCoreMod
     }
 
     @SubscribeEvent
-    @SideOnly(Side.CLIENT) // Fuck you for breaking servers...
+    @SideOnly(Side.CLIENT)
     public void onGuiEvent(GuiOpenEvent event)
     {
         if (event.gui instanceof GuiIngameModOptions)

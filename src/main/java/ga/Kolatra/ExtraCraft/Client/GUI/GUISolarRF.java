@@ -28,13 +28,6 @@ public class GUISolarRF extends GuiContainer
     }
 
     @Override
-    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
-    {
-        ClientUtils.font().drawString("Solar Panel", 8, 6, 4210752);
-        ClientUtils.font().drawString(tile.energyStorage.getEnergyStored() + "/" + tile.energyStorage.getMaxEnergyStored() + " RF", 8, 36, 4210752);
-    }
-
-    @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
     {
         this.drawDefaultBackground();
@@ -43,5 +36,12 @@ public class GUISolarRF extends GuiContainer
         int x = (width - xSize) / 2;
         int y = (height - ySize) / 2;
         this.drawTexturedModalRect(x, y, 256, 256, xSize, ySize);
+    }
+
+    @Override
+    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
+    {
+        ClientUtils.font().drawString("Solar Panel", 8, 6, 4210752);
+        ClientUtils.font().drawString(tile.energyStorage.getEnergyStored() + "/" + tile.energyStorage.getMaxEnergyStored() + " RF", 8, 36, 4210752);
     }
 }
