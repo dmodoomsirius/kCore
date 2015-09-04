@@ -49,8 +49,6 @@ public class KCore extends KCoreMod
 
     public static File CONFIG_DIR;
 
-    private static boolean kolatra = calculateKolatrasComputer();
-
     @Mod.Instance(Reference.MODID)
     public static KCore INSTANCE;
 
@@ -64,7 +62,7 @@ public class KCore extends KCoreMod
 
     public static boolean isKolatrasComputer()
     {
-        return kolatra;
+        return calculateKolatrasComputer();
     }
 
     private static boolean calculateKolatrasComputer() // Thanks to Reika for this boolean that is used in DragonAPI.

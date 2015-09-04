@@ -30,7 +30,7 @@ public class PlayerEvents
         sb.append(EnumChatFormatting.DARK_RED.toString() + "Spiritus Malus ");
         if (ModList.SPIRITUS.isLoaded())
         {
-            sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)");
+            sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)\n");
         }
         else
         {
