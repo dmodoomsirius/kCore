@@ -38,7 +38,7 @@ import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION)
-public class KCore extends KCoreMod
+public class KCore implements IModKCore
 {
     public static final CreativeTabs cTab = new CreativeTab();
     public static final UUID KolatraUUID = UUID.fromString("1d5e02e0-7e54-4e9e-8d9c-548b22c02daf");
@@ -86,7 +86,6 @@ public class KCore extends KCoreMod
         return !FMLForgePlugin.RUNTIME_DEOBF;
     }
 
-    @Override
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
@@ -102,21 +101,17 @@ public class KCore extends KCoreMod
         PlayerEvents pl = new PlayerEvents();
         MainEvents mainEvents = new MainEvents();
         ClientEventHandler client = new ClientEventHandler();
-        MinecraftForge.EVENT_BUS.register(mainEvents);
-        MinecraftForge.EVENT_BUS.register(pl);
-        MinecraftForge.EVENT_BUS.register(client);
-        FMLCommonHandler.instance().bus().register(pl);
-        FMLCommonHandler.instance().bus().register(mainEvents);
+        registerEvents(pl);
+        registerEvents(mainEvents);
+        registerEvents(client);
     }
 
-    @Override
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIProxy());
     }
 
-    @Override
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
@@ -149,6 +144,12 @@ public class KCore extends KCoreMod
         event.registerServerCommand(new CommandTrash());
     }
 
+    private void registerEvents(Object target)
+    {
+        MinecraftForge.EVENT_BUS.register(target);
+        FMLCommonHandler.instance().bus().register(target);
+    }
+
     @EventHandler
     public void turnOffDebug(FMLServerStoppingEvent event)
     {
@@ -165,5 +166,23 @@ public class KCore extends KCoreMod
     {
         if (event.gui instanceof GuiIngameModOptions)
             event.gui = new GuiModList(new GuiIngameMenu());
+    }
+
+    @Override
+    public String modid()
+    {
+        return Reference.MODID;
+    }
+
+    @Override
+    public String name()
+    {
+        return Reference.MODNAME;
+    }
+
+    @Override
+    public String version()
+    {
+        return Reference.VERSION;
     }
 }
