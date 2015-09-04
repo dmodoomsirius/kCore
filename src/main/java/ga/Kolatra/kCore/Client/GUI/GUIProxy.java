@@ -6,11 +6,8 @@ import ga.Kolatra.ExtraCraft.Common.Tile.TileSolarRF;
 import ga.Kolatra.kCore.Common.Libraries.Reference;
 
 import cpw.mods.fml.common.network.IGuiHandler;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class GUIProxy implements IGuiHandler

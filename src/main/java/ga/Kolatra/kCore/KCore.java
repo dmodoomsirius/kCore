@@ -20,6 +20,7 @@ import cpw.mods.fml.client.GuiModList;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -29,6 +30,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.client.gui.GuiIngameMenu;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.classloading.FMLForgePlugin;
@@ -42,21 +44,16 @@ public class KCore extends KCoreMod
     public static final UUID KolatraUUID = UUID.fromString("1d5e02e0-7e54-4e9e-8d9c-548b22c02daf");
     public static boolean debugMode;
     public static boolean trashItemsOnThrow;
-
-    private static int modGUIIndex = 0;
-
-    public static final int GUI_SOLAR_RF = modGUIIndex++;
-
     public static File CONFIG_DIR;
 
-    @Mod.Instance(Reference.MODID)
+    @Instance(Reference.MODID)
     public static KCore INSTANCE;
 
     static
     {
         if (isKolatrasComputer())
         {
-            LogHelper.info("Loading on Tyler's computer. Dev features enabled.");
+            LogHelper.info("Loading on Tyler's computer.");
         }
     }
 
