@@ -135,6 +135,10 @@ public class KCore implements IModKCore
         {
             LogHelper.info("Shutters has been detected in this environment.");
         }
+        if (ModList.EXTRACRAFT.isLoaded())
+        {
+            LogHelper.info("ExtraCraft has been detected in this environment.");
+        }
     }
 
     @EventHandler
