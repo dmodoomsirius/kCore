@@ -5,6 +5,7 @@ import cpw.mods.fml.common.Loader;
 public enum ModList
 {
     SPIRITUS("SpiritusMalus"), // possibly dead mod
+    EXTRACRAFT("ExtraCraft"),
     MININGFIX("MiningSpeedFix"),
     VE("VoltzEngine"),
     DRAGON_API("DragonAPI"),
