@@ -282,3 +282,6 @@ build.bat
 src/api/java/*
 run/
 run2/
+src/main/java/ga/Kolatra/MiningSpeedFix/*
+src/main/java/ga/Kolatra/DefaultSoundMod/*
+src/main/java/ga/Kolatra/ColoredRedstone/*

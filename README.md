@@ -1,7 +1,5 @@
-# kCore and Family
+# kCore
 
-These mods have no direct goal, they will just contain whatever I feel like doing in Minecraft.
+kCore is a library and core-mod that includes and plans to include many different methods to make creating mods easier. My mods will require kCore.
 
-You can do whatever you want with this, for private use only. Please do not reupload or redistribute this mod anywhere. That's no fun.
-
-Please do not include this in any packs. It is in alpha and highly experimental.
+Please do not include this in any packs.
