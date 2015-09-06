@@ -47,7 +47,7 @@ public class KCore implements IModKCore
     public static File CONFIG_DIR;
 
     @Instance(Reference.MODID)
-    public static KCore instance;
+    public static KCore INSTANCE;
 
     static
     {
@@ -77,7 +77,6 @@ public class KCore implements IModKCore
         }
         catch (Exception e)
         {
-            e.printStackTrace();
             return false;
         }
     }

@@ -1,7 +1,7 @@
 package com.Kolatra.kCore.Common.Command;
 
-import com.Kolatra.kCore.KCore;
 import com.Kolatra.kCore.Common.Libraries.ChatHelper;
+import com.Kolatra.kCore.KCore;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;

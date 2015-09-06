@@ -2,8 +2,8 @@ package com.Kolatra.kCore.Common.Events;
 
 import com.Kolatra.kCore.Common.Compatibility.ModList;
 import com.Kolatra.kCore.Common.Libraries.ChatHelper;
-import com.Kolatra.kCore.KCore;
 import com.Kolatra.kCore.Common.Libraries.PlayerChecks;
+import com.Kolatra.kCore.KCore;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
