@@ -9,6 +9,7 @@ import com.Kolatra.kCore.Common.Events.ClientEventHandler;
 import com.Kolatra.kCore.Common.Events.MainEvents;
 import com.Kolatra.kCore.Common.Events.PlayerEvents;
 import com.Kolatra.kCore.Common.Item.CreativeTab;
+import com.Kolatra.kCore.Common.Item.ModItems;
 import com.Kolatra.kCore.Common.Libraries.LogHelper;
 import com.Kolatra.kCore.Common.Libraries.Reference;
 
@@ -62,7 +63,7 @@ public class KCore implements IModKCore
         return calculateKolatrasComputer();
     }
 
-    private static boolean calculateKolatrasComputer() // Thanks to Reika for this boolean that is used in DragonAPI.
+    private static boolean calculateKolatrasComputer()
     {
         try
         {
@@ -97,6 +98,8 @@ public class KCore implements IModKCore
         }
 
         KCoreConfig.init(new File(CONFIG_DIR, "kCore.cfg"));
+
+        ModItems.register();
 
         PlayerEvents pl = new PlayerEvents();
         MainEvents mainEvents = new MainEvents();

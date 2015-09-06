@@ -1,7 +1,7 @@
 package com.Kolatra.kCore.Common.Events;
 
-import com.Kolatra.ExtraCraft.Common.ModObjects;
 import com.Kolatra.kCore.Common.Interfaces.BlockInterfaces;
+import com.Kolatra.kCore.Common.Item.ModItems;
 import com.Kolatra.kCore.Common.Libraries.ClientUtils;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -10,6 +10,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.MovingObjectPosition;
+
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 
 public class ClientEventHandler
@@ -20,7 +21,7 @@ public class ClientEventHandler
     {
         if (ClientUtils.mc().thePlayer != null && ClientUtils.mc().thePlayer.getCurrentEquippedItem() != null && event.type == RenderGameOverlayEvent.ElementType.TEXT)
         {
-            if (ClientUtils.mc().thePlayer.getCurrentEquippedItem().getItem().equals(ModObjects.wrench))
+            if (ClientUtils.mc().thePlayer.getCurrentEquippedItem().getItem().equals(ModItems.wrench))
             {
                 MovingObjectPosition mop = ClientUtils.mc().objectMouseOver;
                 if (mop != null && ClientUtils.mc().thePlayer.worldObj.getTileEntity(mop.blockX, mop.blockY, mop.blockZ) instanceof BlockInterfaces.IBlockOverlayText)
