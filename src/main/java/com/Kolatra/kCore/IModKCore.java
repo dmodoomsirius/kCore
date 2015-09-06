@@ -1,4 +1,4 @@
-package ga.Kolatra.kCore;
+package com.Kolatra.kCore;
 
 public interface IModKCore
 {

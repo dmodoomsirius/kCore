@@ -1,4 +1,4 @@
-package ga.Kolatra.kCore.Common.Interfaces;
+package com.Kolatra.kCore.Common.Interfaces;
 
 import net.minecraft.util.MovingObjectPosition;
 

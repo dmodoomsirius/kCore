@@ -1,4 +1,4 @@
-package ga.Kolatra.kCore.Common.Libraries;
+package com.Kolatra.kCore.Common.Libraries;
 
 public class Reference
 {
