@@ -4,14 +4,13 @@ import cpw.mods.fml.common.Loader;
 
 public enum ModList
 {
-    SPIRITUS("SpiritusMalus"), // possibly dead mod
+    SPIRITUS("SpiritusMalus"),
     EXTRACRAFT("ExtraCraft"),
     MININGFIX("MiningSpeedFix"),
     VE("VoltzEngine"),
     DRAGON_API("DragonAPI"),
     SHUTTERS("Shutters"),
-    PROJECTE("ProjectE"),
-    ;
+    PROJECTE("ProjectE");
 
     public final String mod_id;
 
