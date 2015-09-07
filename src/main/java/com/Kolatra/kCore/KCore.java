@@ -41,11 +41,11 @@ import net.minecraftforge.common.MinecraftForge;
 @Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION)
 public class KCore implements IModKCore
 {
-    public static final CreativeTabs cTab = new CreativeTab();
-    public static final UUID KolatraUUID = UUID.fromString("1d5e02e0-7e54-4e9e-8d9c-548b22c02daf");
-    public static boolean debugMode;
-    public static boolean trashItemsOnThrow;
-    public static File CONFIG_DIR;
+    public static final CreativeTabs    cTab = new CreativeTab();
+    public static final UUID            KolatraUUID = UUID.fromString("1d5e02e0-7e54-4e9e-8d9c-548b22c02daf");
+    public static boolean               debugMode;
+    public static boolean               trashItemsOnThrow;
+    public static File                  CONFIG_DIR;
 
     @Instance(Reference.MODID)
     public static KCore INSTANCE;
@@ -56,6 +56,11 @@ public class KCore implements IModKCore
         {
             LogHelper.info("Loading on Tyler's computer.");
         }
+    }
+
+    static
+    {
+        LogHelper.fatal("s( ?° ?? ?°)z");
     }
 
     public static boolean isKolatrasComputer()
