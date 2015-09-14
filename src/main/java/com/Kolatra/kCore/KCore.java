@@ -1,6 +1,5 @@
 package com.Kolatra.kCore;
 
-import com.Kolatra.kCore.Client.GUI.GUIProxy;
 import com.Kolatra.kCore.Common.Command.CommandDebug;
 import com.Kolatra.kCore.Common.Command.CommandTrash;
 import com.Kolatra.kCore.Common.Compatibility.ModList;
@@ -19,6 +18,7 @@ import java.util.UUID;
 import cpw.mods.fml.client.GuiIngameModOptions;
 import cpw.mods.fml.client.GuiModList;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -28,12 +28,12 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.client.gui.GuiIngameMenu;
 import net.minecraft.creativetab.CreativeTabs;
+
 import net.minecraftforge.classloading.FMLForgePlugin;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -56,11 +56,6 @@ public class KCore implements IModKCore
         {
             LogHelper.info("Loading on Tyler's computer.");
         }
-    }
-
-    static
-    {
-        LogHelper.fatal("s( ?° ?? ?°)z");
     }
 
     public static boolean isKolatrasComputer()
@@ -117,35 +112,19 @@ public class KCore implements IModKCore
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIProxy());
+        //NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIProxy());
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        if (ModList.VE.isLoaded())
+        for (ModList list : ModList.values())
         {
-            LogHelper.info("VoltzEngine has been detected in this environment.");
-        }
-        if (ModList.DRAGON_API.isLoaded())
-        {
-            LogHelper.info("DragonAPI has been detected in this environment.");
-        }
-        if (ModList.PROJECTE.isLoaded())
-        {
-            LogHelper.info("Project E has been detected in this environment.");
-        }
-        if (ModList.SPIRITUS.isLoaded())
-        {
-            LogHelper.info("Spiritus Malus has been detected in this environment.");
-        }
-        if (ModList.SHUTTERS.isLoaded())
-        {
-            LogHelper.info("Shutters has been detected in this environment.");
-        }
-        if (ModList.EXTRACRAFT.isLoaded())
-        {
-            LogHelper.info("ExtraCraft has been detected in this environment.");
+            String modid = list.mod_id;
+            if (Loader.isModLoaded(modid))
+                LogHelper.info(modid + " has been detected in this environment.");
+            else
+                LogHelper.info(modid + " has not been detected in this environment.");
         }
     }
 

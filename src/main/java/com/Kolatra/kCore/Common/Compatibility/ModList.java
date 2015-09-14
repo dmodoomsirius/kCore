@@ -7,8 +7,8 @@ public enum ModList
     SPIRITUS("SpiritusMalus"),
     EXTRACRAFT("ExtraCraft"),
     MININGFIX("MiningSpeedFix"),
-    VE("VoltzEngine"),
-    DRAGON_API("DragonAPI"),
+    VOLTZENGINE("VoltzEngine"),
+    DRAGONAPI("DragonAPI"),
     SHUTTERS("Shutters"),
     PROJECTE("ProjectE");
 

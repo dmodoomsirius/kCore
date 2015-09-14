@@ -2,13 +2,13 @@
 {
   "modid": "kCore",
   "name": "kCore",
-  "description": "",
+  "description": "A library mod.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["Kolatra"],
-  "credits": "Kolatra",
+  "credits": "Kolatra, dmodoomsirius, and many others.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
