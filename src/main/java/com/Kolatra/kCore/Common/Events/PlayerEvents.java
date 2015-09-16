@@ -2,9 +2,11 @@ package com.Kolatra.kCore.Common.Events;
 
 import com.Kolatra.kCore.Common.Compatibility.ModList;
 import com.Kolatra.kCore.Common.Libraries.ChatHelper;
+import com.Kolatra.kCore.Common.Libraries.LogHelper;
 import com.Kolatra.kCore.Common.Libraries.PlayerChecks;
 import com.Kolatra.kCore.KCore;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 import net.minecraft.util.ChatComponentText;
@@ -19,35 +21,35 @@ public class PlayerEvents
     private static String getKolatraWelcome()
     {
         StringBuilder sb = new StringBuilder();
-        sb.append(EnumChatFormatting.AQUA.toString() + "Welcome ");
-        sb.append(EnumChatFormatting.DARK_RED.toString() + "Kolatra");
-        sb.append(EnumChatFormatting.AQUA.toString() + ", ");
-        sb.append(EnumChatFormatting.AQUA.toString() + "developer of:\n");
-        sb.append(EnumChatFormatting.WHITE.toString() + "\n");
-        sb.append(EnumChatFormatting.GOLD.toString() + "kCore ");
-        sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)\n");
-        sb.append(EnumChatFormatting.YELLOW.toString() + "ExtraCraft ");
-        sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)\n");
-        sb.append(EnumChatFormatting.DARK_RED.toString() + "Spiritus Malus ");
+        sb.append(EnumChatFormatting.DARK_AQUA + "Welcome ");
+        sb.append(EnumChatFormatting.DARK_RED + "Kolatra");
+        sb.append(EnumChatFormatting.WHITE + ", ");
+        sb.append(EnumChatFormatting.DARK_AQUA + "developer of:\n");
+        sb.append(EnumChatFormatting.WHITE + "\n");
+        sb.append(EnumChatFormatting.GOLD + "kCore ");
+        sb.append(EnumChatFormatting.GREEN + "(Installed)\n");
+        sb.append(EnumChatFormatting.YELLOW + "ExtraCraft ");
+        sb.append(EnumChatFormatting.GREEN + "(Installed)\n");
+        sb.append(EnumChatFormatting.DARK_RED + "Spiritus Malus ");
         if (ModList.SPIRITUS.isLoaded())
         {
-            sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)\n");
+            sb.append(EnumChatFormatting.GREEN + "(Installed)\n");
         }
         else
         {
-            sb.append(EnumChatFormatting.RED.toString() + "(Not Installed)\n");
+            sb.append(EnumChatFormatting.RED + "(Not Installed)\n");
         }
-        sb.append(EnumChatFormatting.LIGHT_PURPLE.toString() + "MiningFixCore ");
+        sb.append(EnumChatFormatting.LIGHT_PURPLE + "MiningFixCore ");
         if (ModList.MININGFIX.isLoaded())
         {
-            sb.append(EnumChatFormatting.GREEN.toString() + "(Installed)\n");
+            sb.append(EnumChatFormatting.GREEN + "(Installed)\n");
         }
         else
         {
-            sb.append(EnumChatFormatting.RED.toString() + "(Not Installed)\n");
+            sb.append(EnumChatFormatting.RED + "(Not Installed)\n");
         }
-        sb.append(EnumChatFormatting.WHITE.toString() + "\n");
-        sb.append(EnumChatFormatting.AQUA.toString() + "to the server!");
+        sb.append(EnumChatFormatting.WHITE + "\n");
+        sb.append(EnumChatFormatting.DARK_AQUA + "to the server!");
         return sb.toString();
     }
 

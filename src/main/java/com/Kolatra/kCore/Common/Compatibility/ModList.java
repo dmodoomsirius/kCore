@@ -9,8 +9,11 @@ public enum ModList
     MININGFIX("MiningSpeedFix"),
     VOLTZENGINE("VoltzEngine"),
     DRAGONAPI("DragonAPI"),
+    PROJECTE("ProjectE"),
+    COFH("CoFHCore"),
+    THERMALEXPANSION("ThermalExpansion"),
     SHUTTERS("Shutters"),
-    PROJECTE("ProjectE");
+    ;
 
     public final String mod_id;
 

@@ -38,6 +38,9 @@ import net.minecraftforge.classloading.FMLForgePlugin;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.common.MinecraftForge;
 
+/**
+ * @author - Kolatra
+ */
 @Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION)
 public class KCore implements IModKCore
 {
