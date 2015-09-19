@@ -41,11 +41,11 @@ import net.minecraftforge.common.MinecraftForge;
 /**
  * @author - Kolatra
  */
-@Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION)
+@Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION, modLanguage = "java")
 public class KCore implements IModKCore
 {
-    public static final CreativeTabs    cTab = new CreativeTab();
-    public static final UUID            KolatraUUID = UUID.fromString("1d5e02e0-7e54-4e9e-8d9c-548b22c02daf");
+    public static final CreativeTabs    cTab                = new CreativeTab();
+    public static final UUID            KolatraUUID         = UUID.fromString("1d5e02e0-7e54-4e9e-8d9c-548b22c02daf");
     public static boolean               debugMode;
     public static boolean               trashItemsOnThrow;
     public static File                  CONFIG_DIR;
