@@ -1,4 +1,4 @@
-kCore
+kCore [![Build Status](https://drone.io/github.com/Kolatra/kCore/status.png)](https://drone.io/github.com/Kolatra/kCore/latest)
 ======
 
 kCore is a library and core-mod that includes and plans to include many different methods to make creating mods easier. My mods will require kCore.
