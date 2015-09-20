@@ -13,6 +13,8 @@ public class Reference
     /**
      * kCore
      */
+    public static final String AUTHOR =                                 "Kolatra";
+
     public static final String MODID =                                  "kCore";
     public static final String MODNAME =                                "kCore";
 

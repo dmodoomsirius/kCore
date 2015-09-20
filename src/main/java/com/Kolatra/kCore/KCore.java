@@ -42,7 +42,7 @@ import net.minecraftforge.common.MinecraftForge;
  * @author - Kolatra
  */
 @Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION, modLanguage = "java")
-public class KCore implements IModKCore
+public class KCore extends KCoreMod
 {
     public static final CreativeTabs    cTab                = new CreativeTab();
     public static final UUID            KolatraUUID         = UUID.fromString("1d5e02e0-7e54-4e9e-8d9c-548b22c02daf");
@@ -163,20 +163,26 @@ public class KCore implements IModKCore
     }
 
     @Override
-    public String modid()
+    public String getModID()
     {
         return Reference.MODID;
     }
 
     @Override
-    public String name()
+    public String getVersionNumber()
+    {
+        return Reference.VERSION;
+    }
+
+    @Override
+    public String getDisplayName()
     {
         return Reference.MODNAME;
     }
 
     @Override
-    public String version()
+    public String getAuthorName()
     {
-        return Reference.VERSION;
+        return Reference.AUTHOR;
     }
 }
